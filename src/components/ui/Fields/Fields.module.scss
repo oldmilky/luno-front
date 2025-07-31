@@ -1,0 +1,141 @@
+@import "src/assets/styles/variables.scss";
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.hint {
+  font-size: 17px;
+  color: $gray-200;
+}
+
+.input {
+  height: 70px;
+  padding: 0 25px;
+  border-top: 1px solid $dark-gray-200;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid $dark-gray-200;
+  outline: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: $white;
+}
+
+.error {
+  color: #d6405e;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  text-transform: uppercase;
+}
+
+.slugField {
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+
+  .slugButton {
+    width: 160px;
+    background: $dark-gray-200;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0 25px;
+  border-top: 1px solid $dark-gray-200;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid $dark-gray-200;
+  outline: none;
+
+  .buttonChoice {
+    font-size: 18px;
+    font-weight: 600;
+    color: $gray-200;
+  }
+
+  .buttonChoiceActive {
+    font-size: 18px;
+    font-weight: 600;
+    color: $white;
+  }
+}
+
+.item {
+  position: relative;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.selectContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.select {
+  background: $dark-gray-300;
+  border-radius: 20px;
+  position: relative;
+  height: 60px;
+  border-top: 2px solid $gray-100;
+  border-left: none;
+  border-bottom: none;
+  border-right: none;
+  padding: 0 20px 0 20px;
+  outline: none;
+  font-family: Stem;
+  font-size: 18px;
+  color: $white;
+  cursor: pointer;
+}
+
+.option {
+  width: 410px;
+  border-radius: 20px;
+  border-top: 2px solid $gray-100;
+  border-left: none;
+  border-bottom: none;
+  border-right: none;
+  outline: none;
+  cursor: pointer;
+  font-family: Stem;
+}
+
+.textarea {
+  width: 100%;
+  background: $dark-gray-300;
+  height: 250px;
+  outline: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid $black;
+  border-top: 1px solid $black;
+  padding: 15px 20px 15px 20px;
+  resize: none;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 500;
+  color: $white !important;
+}

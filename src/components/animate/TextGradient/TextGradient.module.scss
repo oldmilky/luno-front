@@ -1,0 +1,17 @@
+@import 'src/assets/styles/variables.scss';
+
+.paragraph {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.word {
+    position: relative;
+    margin-right: 8px;
+    margin-top: 8px;
+
+    .shadow {
+        position: absolute;
+        opacity: 20%;
+    }
+}

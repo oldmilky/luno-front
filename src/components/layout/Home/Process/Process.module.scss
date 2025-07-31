@@ -1,0 +1,232 @@
+@import "src/assets/styles/variables.scss";
+
+.process {
+  margin: 0 auto 100px;
+  background: $white;
+  padding: 35px 0 65px 0;
+  background-image: url(../../../../assets/images/whiteBackground.svg);
+  background-repeat: repeat;
+  position: relative;
+
+  .content {
+    max-width: 1620px;
+    padding: 0 15px 0 15px;
+    margin: 0 auto;
+    overflow-x: hidden;
+  }
+
+  .titles {
+    position: relative;
+  }
+
+  .title {
+    font-size: 130px;
+    color: $black;
+    font-family: Benzin;
+    font-weight: 700;
+    line-height: 130px;
+    text-align: end;
+
+    @media screen and (max-width: 1310px) {
+      font-size: 90px;
+      display: block;
+      line-height: normal;
+    }
+
+    @media screen and (max-width: 885px) {
+      font-size: 70px;
+    }
+
+    @media screen and (max-width: 695px) {
+      font-size: 50px;
+    }
+
+    @media screen and (max-width: 510px) {
+      font-size: 40px;
+    }
+  }
+
+  .title2 {
+    font-size: 130px;
+    color: $black;
+    font-family: Benzin;
+    font-weight: 700;
+    margin: 0;
+    line-height: 130px;
+
+    @media screen and (max-width: 1310px) {
+      font-size: 90px;
+      display: block;
+      line-height: normal;
+    }
+
+    @media screen and (max-width: 885px) {
+      font-size: 70px;
+    }
+
+    @media screen and (max-width: 695px) {
+      font-size: 50px;
+    }
+
+    @media screen and (max-width: 510px) {
+      font-size: 40px;
+    }
+
+    @media screen and (max-width: 400px) {
+      font-size: 37px;
+    }
+  }
+
+  .subtitle {
+    font-family: Dreams;
+    color: $dark-gray-200;
+    font-size: 23px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    transform: rotate(-2deg);
+    letter-spacing: 2px;
+    max-width: 600px;
+
+    @media screen and (max-width: 1025px) {
+      top: 250px;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 100%;
+      width: 100%;
+      text-align: center;
+    }
+
+    @media screen and (max-width: 885px) {
+      top: 160px;
+    }
+
+    @media screen and (max-width: 525px) {
+      top: 130px;
+      font-size: 17px;
+      width: 90%;
+    }
+  }
+
+  .subtitle2 {
+    font-family: Dreams;
+    color: $dark-gray-200;
+    font-size: 23px;
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+    letter-spacing: 2px;
+
+    @media screen and (max-width: 1025px) {
+      display: none !important;
+    }
+  }
+
+  .button {
+    background: $gray-gradient;
+    width: 250px;
+    height: 75px;
+    color: $white;
+    font-family: Benzin;
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 100px 0 0;
+    gap: 60px;
+
+    @media screen and (max-width: 1575px) {
+      gap: 40px;
+    }
+
+    @media screen and (max-width: 1550px) {
+      gap: 65px;
+    }
+
+    @media screen and (max-width: 1025px) {
+      margin: 130px 0 0;
+    }
+  }
+
+  .item {
+    max-width: 735px;
+    display: flex;
+    align-items: center;
+    gap: 100px;
+
+    @media screen and (max-width: 1575px) {
+      gap: 50px;
+    }
+
+    @media screen and (max-width: 1550px) {
+      max-width: 100%;
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .itemTitle {
+    font-size: 26px;
+    color: $black;
+    font-family: Benzin;
+    font-weight: 600;
+
+    @media screen and (max-width: 695px) {
+      font-size: 22px;
+    }
+  }
+
+  .text {
+    color: $dark-gray-400;
+    max-width: 840px;
+    letter-spacing: 0.1px;
+    text-transform: uppercase;
+    font-size: 17px;
+
+    @media screen and (max-width: 695px) {
+      font-size: 16px;
+    }
+  }
+
+  .number {
+    font-size: 22px;
+    color: $black;
+    font-family: Benzin;
+    font-weight: 600;
+
+    @media screen and (max-width: 885px) {
+      display: none;
+    }
+  }
+
+  .circleContainer {
+    background-color: red;
+    position: relative;
+
+    .circle {
+      height: 1550%;
+      width: 120% !important;
+      min-width: 100%;
+      left: -10%;
+      border-radius: 0 0 50% 50%;
+      background-color: $white;
+      background-image: url(../../../../assets/images/whiteBackground.svg);
+      background-repeat: repeat;
+      z-index: 1;
+      position: absolute;
+      box-shadow: 0px 60px 50px rgba(0, 0, 0, 0.748);
+    }
+  }
+}

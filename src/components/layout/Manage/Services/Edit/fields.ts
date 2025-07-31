@@ -1,0 +1,46 @@
+export const descFields = [
+  {
+    name: "subtitle",
+    requiredEror: "Описание обязательно",
+    hint: "Описание на русском",
+    placeholder: "Введите описание",
+    style: "410px",
+    required: true,
+  },
+  {
+    name: "subtitleEn",
+    requiredEror: "Описание обязательно",
+    hint: "Описание на английском",
+    placeholder: "Введите описание",
+    style: "410px",
+    required: true,
+  },
+  {
+    name: "seoTitle",
+    requiredEror: "Заголовок обязателен",
+    hint: "Сео заголовок на русском",
+    placeholder: "Введите название",
+    required: true,
+  },
+  {
+    name: "seoTitleEn",
+    requiredEror: "Заголовок обязателен",
+    hint: "Сео заголовок на английском",
+    placeholder: "Введите название",
+    required: true,
+  },
+  {
+    name: "seoDesc",
+    requiredEror: "Описание обязательно",
+    hint: "Сео описание на русском",
+    placeholder: "Введите описание",
+    required: true,
+  },
+  {
+    name: "seoDescEn",
+    requiredEror: "Описание обязательно",
+    hint: "Сео описание на английском",
+    placeholder: "Введите описание",
+    required: true,
+  },
+];

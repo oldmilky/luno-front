@@ -1,0 +1,179 @@
+@import "src/assets/styles/variables.scss";
+
+.manage {
+  max-width: 1620px;
+  background: $black;
+  padding: 35px;
+  border-radius: 32px;
+  margin: 105px auto 0;
+
+  .titles {
+    display: flex;
+    align-items: center;
+    margin: 100px 0 40px;
+    max-width: 1260px;
+
+    .title {
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: $dark-gray-100;
+    }
+  }
+
+  .size {
+    width: 220px;
+  }
+
+  .size2 {
+    width: 220px;
+  }
+
+  .size3 {
+    width: 160px;
+  }
+
+  .size4 {
+    width: 140px;
+  }
+
+  .size5 {
+    width: 120px;
+  }
+
+  .size6 {
+    width: 100px;
+  }
+
+  .sizeCheat {
+    width: 190px;
+  }
+
+  .sizeCheat2 {
+    width: 190px;
+  }
+
+  .sizeCheat3 {
+    width: 165px;
+  }
+
+  .sizeCheat4 {
+    width: 220px;
+  }
+
+  .sizeCheat5 {
+    width: 160px;
+  }
+
+  .sizeCheat6 {
+    width: 100px;
+  }
+
+  .sizeUser {
+    width: 220px;
+  }
+
+  .sizeUser2 {
+    width: 250px;
+  }
+
+  .sizeUser3 {
+    width: 150px;
+  }
+
+  .sizeUser4 {
+    width: 160px;
+  }
+
+  .sizeBlog {
+    width: 700px;
+  }
+
+  .sizeUser2 {
+    width: 200px;
+  }
+
+  .items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .item {
+    width: 100%;
+    background: $black;
+    border-top: 1px solid $dark-gray-200;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 125px;
+    box-sizing: border-box;
+    transition: 0.3s;
+
+    &:hover {
+      background: $dark-gray-300;
+      transition: 0.3s;
+    }
+
+    &:last-of-type {
+      border-bottom: 1px solid $dark-gray-200;
+    }
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    cursor: pointer;
+  }
+
+  .wrap {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+  }
+
+  .text {
+    color: $white;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .iconEdit {
+    width: 65px;
+    height: 65px;
+    border-radius: 50px;
+    background: $dark-gray-300;
+    background-image: url(../../../assets/images/edit.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.3s;
+
+    &:hover {
+      transform: translateY(-4px);
+      transition: 0.3s;
+    }
+  }
+
+  .image {
+    border-radius: 16px;
+    object-fit: cover;
+  }
+
+  .iconTrash {
+    width: 65px;
+    height: 65px;
+    border-radius: 50px;
+    background: $dark-gray-300;
+    background-image: url(../../../assets/images/trash.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-4px);
+      transition: 0.3s;
+    }
+  }
+}

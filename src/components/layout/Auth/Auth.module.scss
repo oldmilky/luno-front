@@ -1,0 +1,112 @@
+@import "src/assets/styles/variables.scss";
+
+.titlesContent {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 90px;
+  color: $white;
+  font-family: Benzin;
+  font-weight: 700;
+  line-height: 90px;
+  text-align: center;
+}
+
+.subtitle {
+  font-family: Dreams;
+  color: $dark-gray-200;
+  font-size: 23px;
+  letter-spacing: 2px;
+  max-width: 430px;
+  transform: rotate(12deg);
+
+  position: absolute;
+  bottom: 50px;
+  right: -15px;
+}
+
+.subtitle2 {
+  font-family: Dreams;
+  color: $dark-gray-200;
+  font-size: 23px;
+  letter-spacing: 2px;
+  max-width: 430px;
+  transform: rotate(-12deg);
+
+  position: absolute;
+  top: -10px;
+  left: 0;
+}
+
+.content {
+    max-width: 1620px;
+    margin: 100px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    max-width: 1620px;
+    margin: 50px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.container {
+    max-width: 950px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.wrapper {
+    display: flex;
+    gap: 50px;
+}
+
+.field {
+    max-width: 950px;
+    width: 100%;
+    border-bottom: 1px solid $dark-gray-200;
+    height: 60px;
+    font-size: 18px;
+    color: $white;
+    font-weight: 600;
+}
+
+.button {
+    background: $gray-gradient;
+    width: 250px;
+    height: 75px;
+    color: $white;
+    font-family: Benzin;
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 8px;
+    margin: 75px auto 0;
+
+    .text {
+        color: $white;
+    }
+
+    &:hover {
+        .text {
+            color: $white;
+        }
+    }
+
+    .circle {
+        background: $black-gradient;
+    }
+}

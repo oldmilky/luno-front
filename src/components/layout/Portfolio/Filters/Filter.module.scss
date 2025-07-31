@@ -1,0 +1,134 @@
+@import "src/assets/styles/variables.scss";
+
+.filter {
+  max-width: 1620px;
+  margin: 150px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px 0 15px;
+  position: relative;
+  z-index: 0;
+
+  .container {
+    display: flex;
+    gap: 15px;
+  }
+
+  .types {
+    display: flex;
+    gap: 15px;
+  }
+
+  .button {
+    background: $black-gradient;
+    padding: 0 30px 0 30px;
+    height: 60px;
+    color: $white;
+    font-family: Benzin;
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 8px;
+    // border-radius: 50px;
+
+    @media screen and (max-width: 500px) {
+      padding: 0 15px 0 15px;
+      font-size: 15px;
+    }
+
+    .text {
+      color: $white;
+    }
+
+    &:hover {
+      .text {
+        color: $white;
+      }
+    }
+
+    .circle {
+      background: $gray-gradient;
+    }
+  }
+
+  .buttonActive {
+    background: $white-gradient;
+    padding: 0 30px 0 30px;
+    height: 60px;
+    color: $black;
+    font-family: Benzin;
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 8px;
+    // border-radius: 50px;
+
+    @media screen and (max-width: 500px) {
+      padding: 0 25px 0 25px;
+      font-size: 15px;
+    }
+
+    .text {
+      color: $black;
+    }
+
+    &:hover {
+      .text {
+        color: $black;
+      }
+    }
+
+    .circle {
+      background: $white-gradient;
+    }
+  }
+
+  .type {
+    background: $black-gradient;
+    width: 60px;
+    height: 60px;
+    color: $white;
+    font-family: Benzin;
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 8px;
+
+    .text {
+      color: $white;
+    }
+
+    &:hover {
+      .text {
+        color: $white;
+      }
+    }
+
+    .circle {
+      background: $gray-gradient;
+    }
+  }
+
+  .typeActive {
+    background: $white-gradient;
+    width: 60px;
+    height: 60px;
+    color: $white;
+    font-family: Benzin;
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 8px;
+
+    .text {
+      color: $black;
+    }
+
+    &:hover {
+      .text {
+        color: $black;
+      }
+    }
+
+    .circle {
+      background: $white-gradient;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@import "src/assets/styles/variables.scss";
+
+.languages {
+  padding: 15px;
+  background: #21252c;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  position: fixed;
+  bottom: 45px;
+  right: 25px;
+
+  z-index: 100;
+
+  .button {
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Benzin;
+    color: $dark-gray-100;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: $white;
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+    }
+  }
+
+  .active {
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Benzin;
+    color: $white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: $white;
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+    }
+  }
+}

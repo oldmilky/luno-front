@@ -1,0 +1,133 @@
+@import "src/assets/styles/variables.scss";
+
+.order {
+  margin: 135px auto 0;
+  width: 100%;
+  background: $white;
+  padding: 65px 0 65px 0;
+  background-image: url(../../../assets/images/whiteBackground.svg);
+  background-repeat: repeat;
+  overflow-x: hidden;
+
+  @media screen and (max-width: 525px) {
+    padding: 35px 0 35px 0;
+  }
+
+  .title {
+    font-size: 130px;
+    color: $black;
+    font-family: Benzin;
+    font-weight: 800;
+    line-height: 110px;
+
+    @media screen and (max-width: 1640px) {
+      font-size: 90px;
+      line-height: 90px;
+    }
+
+    @media screen and (max-width: 1330px) {
+      font-size: 70px;
+      line-height: 50px;
+    }
+
+    @media screen and (max-width: 1180px) {
+      font-size: 100px;
+      line-height: 100px;
+    }
+
+    @media screen and (max-width: 830px) {
+      font-size: 70px;
+      line-height: 50px;
+    }
+
+    @media screen and (max-width: 525px) {
+      font-size: 50px;
+    }
+
+    @media screen and (max-width: 425px) {
+      font-size: 40px;
+    }
+  }
+
+  .titles {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .content {
+    max-width: 1620px;
+    padding: 0 15px 0 15px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 25px;
+    z-index: 2;
+
+    @media screen and (max-width: 1180px) {
+      flex-direction: column;
+      gap: 50px;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    @media screen and (max-width: 1180px) {
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+  }
+
+  .text {
+    font-size: 17px;
+    color: $black;
+    text-align: end;
+    max-width: 550px;
+
+    @media screen and (max-width: 1180px) {
+      width: 100%;
+      max-width: 100%;
+      text-align: start;
+    }
+
+    @media screen and (max-width: 525px) {
+      font-size: 16px;
+    }
+  }
+
+  .view {
+    background: $black-gradient;
+    width: 255px;
+    height: 70px;
+    color: $white;
+    font-family: Benzin;
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 8px;
+    margin: 30px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .text {
+      color: $white;
+    }
+
+    &:hover {
+      .text {
+        color: $white;
+      }
+    }
+
+    .circle {
+      background: $gray-gradient;
+    }
+  }
+}

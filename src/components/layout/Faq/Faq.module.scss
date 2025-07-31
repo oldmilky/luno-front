@@ -1,0 +1,98 @@
+@import "src/assets/styles/variables.scss";
+
+.faq {
+  max-width: 1620px;
+  padding: 0 15px 0 15px;
+  margin: 100px auto 100px;
+}
+
+.faqWhite {
+  width: 100%;
+  // padding: 0 15px 0 15px;
+  margin: 55px auto 55px;
+  background: $white;
+  padding: 35px 0 35px 0;
+  background: $white url(../../../assets/images/whiteBackground.svg) repeat;
+}
+
+.titles {
+  margin: 0 0 35px 0;
+}
+
+.title {
+  font-size: 130px;
+  color: $white;
+  font-family: Benzin;
+  font-weight: 700;
+  line-height: 130px;
+  margin: 0 0 30px 0;
+
+  @media screen and (max-width: 1310px) {
+    font-size: 90px;
+    line-height: normal;
+  }
+
+  @media screen and (max-width: 690px) {
+    font-size: 70px;
+  }
+
+  @media screen and (max-width: 525px) {
+    font-size: 50px;
+  }
+}
+
+.titleWhite {
+  font-size: 130px;
+  color: $black;
+  font-family: Benzin;
+  font-weight: 700;
+  line-height: 130px;
+  margin: 0 0 30px 0;
+  padding: 0 15px 0 15px;
+
+  @media screen and (max-width: 1310px) {
+    font-size: 90px;
+    line-height: normal;
+  }
+
+  @media screen and (max-width: 690px) {
+    font-size: 70px;
+  }
+
+  @media screen and (max-width: 525px) {
+    font-size: 50px;
+    margin: 0 0 15px 0;
+  }
+}
+
+.subtitle {
+  font-family: Dreams;
+  color: $dark-gray-200;
+  font-size: 23px;
+  letter-spacing: 2px;
+  max-width: 500px;
+  padding: 0 15px 0 15px;
+
+  @media screen and (max-width: 525px) {
+    font-size: 17px;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1620px;
+  // padding: 0 15px 0 15px;
+  width: 100%;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1500px) {
+    flex-direction: column;
+  }
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+}

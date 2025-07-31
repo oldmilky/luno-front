@@ -1,0 +1,147 @@
+@import "src/assets/styles/variables.scss";
+
+.portfolio {
+  margin: 150px auto 200px;
+
+  .titles {
+    position: relative;
+    max-width: 1620px;
+    margin: 0 auto;
+    padding: 0 15px 0 15px;
+  }
+
+  .title {
+    font-size: 130px;
+    color: $white;
+    font-family: Benzin;
+    font-weight: 700;
+    line-height: 130px;
+
+    @media screen and (max-width: 1310px) {
+      font-size: 90px;
+      line-height: normal;
+    }
+
+    @media screen and (max-width: 885px) {
+      font-size: 60px;
+    }
+
+    @media screen and (max-width: 600px) {
+      font-size: 50px;
+    }
+
+    @media screen and (max-width: 515px) {
+      font-size: 45px;
+    }
+
+    @media screen and (max-width: 455px) {
+      font-size: 40px;
+    }
+
+    @media screen and (max-width: 410px) {
+      font-size: 35px;
+    }
+  }
+
+  .title2 {
+    font-size: 130px;
+    color: $white;
+    font-family: Benzin;
+    font-weight: 700;
+    margin: 0;
+    line-height: 130px;
+    text-align: end;
+
+    @media screen and (max-width: 1310px) {
+      font-size: 90px;
+      line-height: normal;
+    }
+
+    @media screen and (max-width: 885px) {
+      font-size: 60px;
+    }
+
+    @media screen and (max-width: 600px) {
+      font-size: 50px;
+    }
+
+    @media screen and (max-width: 515px) {
+      font-size: 45px;
+    }
+
+    @media screen and (max-width: 455px) {
+      font-size: 40px;
+    }
+  }
+
+  .subtitle {
+    font-family: Dreams;
+    color: $dark-gray-200;
+    font-size: 23px;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    letter-spacing: 2px;
+    max-width: 650px;
+
+    @media screen and (max-width: 1140px) {
+      left: 50%;
+      transform: translate(-50%, 0);
+      bottom: -50px;
+      width: 90%;
+      max-width: 100%;
+    }
+
+    @media screen and (max-width: 600px) {
+      bottom: -50px;
+
+      font-size: 17px;
+    }
+
+    @media screen and (max-width: 500px) {
+      bottom: -70px;
+    }
+  }
+
+  .projects {
+    margin: 40px 0 0;
+    position: relative;
+  }
+
+  .planetWrap {
+    position: absolute;
+    top: 370px;
+    left: 50%;
+    height: 100%;
+    pointer-events: none;
+
+    @media screen and (max-width: 1510px) {
+      top: 270px;
+    }
+
+    @media screen and (max-width: 1110px) {
+      top: 170px;
+    }
+
+    @media screen and (max-width: 725px) {
+      display: none;
+    }
+  }
+
+  .planet {
+    position: sticky;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+    width: 750px;
+    height: auto;
+    z-index: -1;
+
+    @media screen and (max-width: 1510px) {
+      width: 550px;
+    }
+
+    @media screen and (max-width: 1110px) {
+      width: 350px;
+    }
+  }
+}

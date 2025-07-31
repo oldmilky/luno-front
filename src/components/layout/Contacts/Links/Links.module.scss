@@ -1,0 +1,109 @@
+@import "src/assets/styles/variables.scss";
+
+.links {
+  max-width: 400px;
+
+  .items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 50px;
+
+    @media screen and (max-width: 1110px) {
+      align-items: flex-start;
+    }
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+
+    @media screen and (max-width: 1110px) {
+      align-items: flex-start;
+    }
+  }
+
+  .paragraph {
+    margin: 0 0 10px 0;
+
+    font-size: 16px;
+    color: $dark-gray-200;
+  }
+
+  .text {
+    font-size: 18px;
+    color: $white;
+    max-width: 400px;
+    text-align: end;
+
+    @media screen and (max-width: 1110px) {
+      text-align: start;
+    }
+  }
+
+  .wrap {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      .textLinks {
+        color: $white;
+        transition: all 0.3s ease;
+      }
+
+      .wrapper, .wrapperReverse {
+        width: 75px;
+        height: 75px;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+
+  .textLinks {
+    font-size: 17px;
+    font-family: Benzin;
+    color: $dark-gray-100;
+    max-width: 200px;
+    text-align: end;
+    transition: all 0.3s ease;
+
+    order: 1;
+  }
+
+  .wrapper, .wrapperReverse {
+    order: 2;
+    width: 65px;
+    height: 65px;
+    border-radius: 8px;
+    background-image: url(../../../../assets/images/linkBackground.svg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .wrapperReverse {
+    background-image: url(../../../../assets/images/linkReverse.svg);
+  }
+
+  @media screen and (max-width: 1110px) {
+    .textLinks {
+      order: 2;
+    }
+  
+    .wrapper,
+    .wrapperReverse {
+      order: 1;
+    }
+  }
+
+  .logo {
+    width: 28px;
+    height: 28px;
+  }
+}

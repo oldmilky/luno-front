@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /api/
+Disallow: /_next/static/
+Disallow: /manage/*
+Disallow: /profile/*
+Sitemap: https://www.domination-cheats.com/sitemap.xml

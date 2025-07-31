@@ -1,0 +1,184 @@
+@import "src/assets/styles/variables.scss";
+
+.edit {
+  max-width: 1620px;
+  background: $black;
+  padding: 35px;
+  border-radius: 32px;
+  margin: 75px auto 0;
+
+  .title {
+    font-size: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: Benzin;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 115px 0 0;
+  }
+
+  .items {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 45px;
+    margin: 60px 0 40px;
+  }
+
+  .save {
+    width: 250px;
+    height: 80px;
+    background: $white;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: Benzin;
+    transition: 0.3s;
+    color: $black;
+
+    &:hover {
+      transform: translateY(-4px);
+      transition: 0.3s;
+    }
+  }
+
+  .images {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 0 0 40px;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hint {
+    font-size: 17px;
+    color: $gray-300;
+  }
+
+  .makeit {
+    width: 410px;
+    height: 62px;
+    background: $dark-gray-300;
+    border-radius: 20px;
+  }
+
+  .plans {
+    width: 100%;
+    background: $dark-gray-300;
+    padding: 20px 25px 20px 25px;
+  }
+
+  .plansKeys {
+    background: $dark-gray-300;
+    margin: 0 0 20px 0;
+  }
+
+  .plansTags {
+    width: 440px;
+    background: $black;
+    position: relative;
+  }
+
+  .plansWrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+    margin: 0 0 40px 0;
+  }
+
+  .plansWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    align-items: flex-end;
+    margin: 0 0 10px 0;
+  }
+
+  .planAdd {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .planRemove {
+    font-size: 18px;
+    font-weight: 500;
+    color: #d64063b9;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon {
+    margin-right: 10px;
+  }
+
+  .notes {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0 0 30px 0;
+
+    .note {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0 0 10px 0;
+    }
+
+    .noteText {
+      font-size: 15px;
+      font-weight: 500;
+      color: $gray-300;
+      margin: 0;
+    }
+  }
+
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0 0;
+
+    .span {
+      font-size: 16px;
+      color: $gray-300;
+      margin: 0;
+    }
+  }
+
+  .featuresTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0 0;
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+
+    .span {
+      font-size: 16px;
+      color: $gray-300;
+      margin: 0;
+    }
+  }
+
+  .keyGroup {
+    background: $dark-gray-300;
+    width: 100%;
+    padding: 20px 25px 20px 25px;
+    border-radius: 20px;
+  }
+}

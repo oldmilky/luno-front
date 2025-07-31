@@ -1,0 +1,164 @@
+@import "src/assets/styles/variables.scss";
+
+.desc {
+  margin: 0 auto;
+  width: 100%;
+  padding: 15px 0 45px 0;
+  margin: 225px auto 0;
+
+  .title {
+    font-size: 110px;
+    color: $white;
+    font-family: Benzin;
+    font-weight: 700;
+    line-height: 110px;
+    text-align: center;
+    margin: 0 0 65px 0;
+
+    @media screen and (max-width: 1310px) {
+      font-size: 90px;
+      line-height: normal;
+    }
+
+    @media screen and (max-width: 850px) {
+      font-size: 70px;
+    }
+
+    @media screen and (max-width: 685px) {
+      font-size: 50px;
+    }
+  }
+
+  .content {
+    width: 100%;
+    position: relative;
+    perspective: 1000px;
+  }
+
+  .items {
+    border-top: 1px solid $dark-gray-400;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: -35px;
+    background: $black;
+    gap: 25px;
+
+    cursor: pointer;
+    transform-origin: center center;
+    transition: z-index 0s;
+    z-index: 1;
+
+    &:hover {
+      z-index: 2;
+    }
+
+    .number,
+    .text {
+      pointer-events: none;
+    }
+
+    &:last-of-type {
+      border-bottom: 1px solid $dark-gray-400;
+    }
+  }
+
+  .itemsMobile {
+    border-top: 1px solid $dark-gray-400;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $black;
+    gap: 25px;
+
+    cursor: pointer;
+    transform-origin: center center;
+    transition: z-index 0s;
+    z-index: 1;
+
+    &:hover {
+      z-index: 2;
+    }
+
+    .number,
+    .text {
+      pointer-events: none;
+    }
+
+    &:last-of-type {
+      border-bottom: 1px solid $dark-gray-400;
+    }
+
+    @media screen and (max-width: 845px) {
+      justify-content: flex-start;
+      padding: 0 15px 0 15px;
+      height: 90px;
+    }
+  }
+
+  .item {
+    gap: 25px;
+    max-width: 1620px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .number {
+    font-size: 40px;
+    font-family: Benzin;
+    font-weight: 600;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0.5px $white;
+  }
+
+  .text {
+    font-size: 35px;
+    font-family: Benzin;
+    font-weight: 700;
+    color: $white;
+  }
+
+  .numberMobile {
+    font-size: 35px;
+    font-family: Benzin;
+    font-weight: 600;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0.5px $white;
+
+    @media screen and (max-width: 1165px) {
+      font-size: 30px;
+    }
+
+    @media screen and (max-width: 955px) {
+      font-size: 25px;
+    }
+
+    @media screen and (max-width: 845px) {
+      width: 45px;
+    }
+  }
+
+  .textMobile {
+    font-size: 30px;
+    font-family: Benzin;
+    font-weight: 700;
+    color: $white;
+
+    @media screen and (max-width: 1165px) {
+      font-size: 25px;
+    }
+
+    @media screen and (max-width: 955px) {
+      font-size: 20px;
+    }
+
+    @media screen and (max-width: 705px) {
+      font-size: 16px;
+    }
+  }
+}

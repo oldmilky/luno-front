@@ -1,0 +1,164 @@
+@import "src/assets/styles/variables.scss";
+
+.answer {
+  max-width: 1000px;
+  width: 100%;
+  border-top: 1px solid $dark-gray-400;
+
+  padding: 35px 35px 35px 35px;
+  box-sizing: border-box;
+
+  @media screen and (max-width: 585px) {
+    padding: 35px 15px 35px 15px;
+  }
+
+  @media screen and (max-width: 1500px) {
+    max-width: 100%;
+  }
+
+  &:last-child {
+    border-bottom: 1px solid $dark-gray-400;
+  }
+}
+
+.answerWhite {
+  max-width: 1000px;
+  width: 100%;
+  border-top: 1px solid $dark-gray-400;
+
+  padding: 35px 35px 35px 35px;
+  box-sizing: border-box;
+
+  @media screen and (max-width: 585px) {
+    padding: 35px 15px 35px 15px;
+  }
+
+  @media screen and (max-width: 1500px) {
+    max-width: 100%;
+  }
+
+  &:first-child {
+    border-top: none;
+  }
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  // padding: 40px 35px 35px 35px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.titles {
+  position: relative;
+}
+
+.title {
+  font-size: 30px;
+  color: $white;
+  font-family: Benzin;
+  font-weight: 700;
+  line-height: 30px;
+  transition: opacity 0.3s ease;
+
+  &.inactive {
+    opacity: 0.3;
+  }
+
+  @media screen and (max-width: 700px) {
+    font-size: 25px;
+  }
+}
+
+.titleWhite {
+  font-size: 30px;
+  color: $black;
+  font-family: Benzin;
+  font-weight: 700;
+  line-height: 30px;
+  transition: opacity 0.3s ease;
+
+  &.inactive {
+    opacity: 0.3;
+  }
+
+  @media screen and (max-width: 700px) {
+    font-size: 25px;
+  }
+}
+
+.number {
+  font-size: 20px;
+  font-family: Benzin;
+  font-weight: 700;
+  line-height: 20px;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.5px $gray-200;
+
+  position: absolute;
+  top: -25px;
+  left: 0;
+  transition: opacity 0.3s ease;
+
+  &.inactive {
+    opacity: 0.3;
+  }
+}
+
+.numberWhite {
+  font-size: 20px;
+  font-family: Benzin;
+  font-weight: 700;
+  line-height: 20px;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.5px $dark-gray-200;
+
+  position: absolute;
+  top: -25px;
+  left: 0;
+  transition: opacity 0.3s ease;
+
+  &.inactive {
+    opacity: 0.3;
+  }
+}
+
+.tumbler {
+  font-size: 30px;
+  color: $white;
+  font-family: Benzin;
+  font-weight: 700;
+  line-height: 30px;
+  transition: opacity 0.3s ease;
+
+  &.inactive {
+    opacity: 0.3;
+  }
+}
+
+.tumblerWhite {
+  font-size: 30px;
+  color: $black;
+  font-family: Benzin;
+  font-weight: 700;
+  line-height: 30px;
+  transition: opacity 0.3s ease;
+
+  &.inactive {
+    opacity: 0.3;
+  }
+}
+
+.textWrapper {
+  padding: 35px 0 0 0;
+}
+
+.text {
+  font-size: 16px;
+  color: $dark-gray-200;
+  font-weight: 600;
+  line-height: 16px;
+  width: 100%;
+}

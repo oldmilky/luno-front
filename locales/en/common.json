@@ -1,0 +1,122 @@
+{
+    "header": {
+        "services": "OUR SERVICES",
+        "portfolio": "PORTFOLIO",
+        "blog": "BLOG",
+        "about": "ABOUT US",
+        "develop": "DEVELOPMENT",
+        "whyus": "WHY US?",
+        "contact": "GET IN TOUCH"
+    },
+    "preview": {
+        "sites": "SITES",
+        "designs": "DESIGNS",
+        "projects": "PROJECT"
+    },
+    "aboutHome": {
+        "title": "ABOUT OUR",
+        "title2": "LUNO PROJECT",
+        "text": "We create premium websites and design projects. Our development experience spans more than five years, during which we have successfully delivered many unique projects.",
+        "text2": "We write code exclusively with cutting‑edge technologies from 2023–2025. No PHP or other outdated solutions!",
+        "text3": "We take a unique approach to every task: fully bespoke solutions at minimal market prices using our own tools."
+    },
+    "collection": {
+        "title": "COLLECTION",
+        "title2": "OF PROJECTS",
+        "button": "SEE MORE"
+    },
+    "services": {
+        "title": "OUR SERVICES",
+        "title2": "AT WORK",
+        "subtitle": "SITE </> DEVELOPMENT",
+        "subtitle2": "DESIGNS <3",
+        "order": "ORDER NOW"
+    },
+    "process": {
+        "title": "PROCESS OF",
+        "title2": "DEVELOPMENT",
+        "subtitle": "INTERVIEW",
+        "subtitle2": "TECHNICAL SPECIFICATION",
+        "subtitle3": "DESIGN",
+        "subtitle4": "DEVELOPMENT",
+        "subtitle5": "TESTING",
+        "subtitle6": "LAUNCH",
+        "text": "We conduct an interview with you to clarify project goals and your wishes, and we also propose our own ideas and implementation features.",
+        "text2": "We prepare the structure and craft a technical specification so we have a clear roadmap to follow.",
+        "text3": "Based on the technical specification, our designers create several iterations of a unique design tailored to your project.",
+        "text4": "Once the design is approved, we begin developing the site—both FRONTEND and BACKEND. AFTER COMPLETING DEVELOPMENT, WE LAUNCH THE SITE TO PRODUCTION.",
+        "text5": "Before launch, we thoroughly test the site at all stages. We fix bugs, check functionality, responsiveness, loading speed, and proper operation on different devices and browsers.",
+        "text6": "After successful testing, we deploy the site to the server, handle complete setup and integration. We guarantee that the project will work flawlessly from the first minutes after publication.",
+        "subtitle_disclaimer": "It is important to realize that the process may vary, depending on your preferences!",
+        "subtitle_speed": "We always try to make it fast!"
+    },
+    "whyus": {
+        "title": "WHY WE",
+        "title2": "ARE CHOSEN",
+        "subtitle_reason": "There`s a reason for all of this!"
+    },
+    "footer": {
+        "title": "CONTACTS",
+        "author": "DEVELOPMENT & DESIGN",
+        "author2": "ALL RIGHTS RESERVED"
+    },
+    "portfolio": {
+        "title": "ACTUAL NOW",
+        "title2": "PROJECTS",
+        "all": "ALL",
+        "sites": "SITES",
+        "designs": "DESIGNS"
+    },
+    "order": {
+        "title": "ORDER",
+        "title2": "NOW!",
+        "order": "ORDER",
+        "order2": "ON ORDERING",
+        "text": "DREAMS OF A WEBSITE THAT IS NOT ONLY COOL LOOKING, BUT ALSO ACTUALLY WORKS ON YOUR BUSINESS?",
+        "text2": "WE ARE READY TO BRING YOUR IDEA TO LIFE!",
+        "text3": "CONTACT US FOR A FREE CONSULTATION, AND LET'S CREATE A PROJECT THAT WILL NOT ONLY SUCCEED BUT ALSO BRING JOY TO YOUR CLIENTS."
+    },
+    "service": {
+        "nav": "#VARIETY TO SERVICE",
+        "previewText": "estimated price",
+        "previewText2": "estimated timeframe",
+        "previewText3": "default you get"
+    },
+    "contacts": {
+        "title": "LET'S START A",
+        "title2": "PROJECT TOGETHER!",
+        "input": "WHAT'S YOUR NAME?",
+        "input2": "YOUR CONTACTS",
+        "input2span": "(FOR EXAMPLE TELEGRAM, EMAIL, ETC.)",
+        "input3": "YOUR BUDGET IN USD",
+        "input4": "WHICH SERVICE INTERESTS YOU",
+        "input4button": "WEBSITE",
+        "input4button2": "DESIGN",
+        "input4button3": "OTHER",
+        "input5": "YOUR MESSAGE",
+        "input5text": "We want to develop an online store with design!",
+        "button": "SEND",
+        "subtitle": "contacts",
+        "subtitle2": "social media",
+        "subtitle3": "work details",
+        "text": "MANAGER: RODION",
+        "text2": "LANGUAGE: RUSSIAN & ENGLISH",
+        "text3": "RESPONSE TIME: 10 MINUTES – 4 HOURS"
+    },
+    "blog": {
+        "articles": "articles",
+        "read": "READ ARTICLE"
+    },
+    "case": {
+        "back": "#RETURN TO PORTFOLIO",
+        "title2": "ABOUT THE PROJECT",
+        "about": "DESCRIPTION",
+        "about2": "TECHNOLOGIES",
+        "about3": "RESULTS",
+        "goon": "CONTINUE SCROLLING"
+    },
+    "toast": {
+        "success": "MESSAGE SENT! WE WILL CONTACT YOU IN THE NEAREST TIME.",
+        "error": "ERROR SENDING MESSAGE..."
+    }
+}

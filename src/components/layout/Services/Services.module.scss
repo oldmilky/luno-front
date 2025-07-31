@@ -1,0 +1,340 @@
+@import "src/assets/styles/variables.scss";
+
+.services {
+  z-index: 3;
+  margin: 150px auto 150px;
+
+  .titles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 0 125px 0;
+  }
+
+  .title {
+    font-size: 130px;
+    color: $white;
+    font-family: Benzin;
+    font-weight: 700;
+    line-height: 130px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 1310px) {
+      font-size: 90px;
+      line-height: normal;
+    }
+
+    @media screen and (max-width: 970px) {
+      font-size: 70px;
+    }
+
+    @media screen and (max-width: 745px) {
+      font-size: 50px;
+    }
+
+    @media screen and (max-width: 544px) {
+      text-align: center;
+      padding: 0 15px 0 15px;
+      font-size: 60px;
+    }
+  }
+
+  .subtitle {
+    font-family: Dreams;
+    color: $dark-gray-200;
+    font-size: 23px;
+    letter-spacing: 2px;
+    max-width: 900px;
+    transform: rotate(-2deg);
+    margin: 15px 0 0;
+
+    @media screen and (max-width: 1310px) {
+      display: block;
+    }
+
+    @media screen and (max-width: 525px) {
+      font-size: 17px;
+      width: 90%;
+    }
+  }
+
+  .serviceName {
+    max-width: 1620px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 75px auto 30px;
+  }
+
+  .serviceNameReverse {
+    max-width: 1620px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 75px auto 30px;
+    flex-direction: row-reverse;
+  }
+
+  .serviceTitle {
+    font-size: 18px;
+    color: $black;
+    font-family: 500;
+    background: $dark-gray-400;
+    padding: 8px 14px;
+    letter-spacing: 2px;
+    // border-radius: 4px;
+  }
+
+  .circle {
+    width: 7px;
+    height: 7px;
+    background-color: $white;
+    border-radius: 50%;
+  }
+
+  .content {
+    width: 100%;
+
+    .wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1620px;
+      width: 100%;
+
+      @media screen and (max-width: 1240px) {
+        flex-direction: column;
+      }
+    }
+
+    .wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .descs {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+    }
+
+    .description {
+      font-size: 15px;
+      line-height: 15px;
+      font-weight: 600;
+      color: $dark-gray-200;
+      max-width: 600px;
+      text-align: end;
+
+      @media screen and (max-width: 1240px) {
+        margin: 20px 0 0;
+        text-align: center;
+      }
+    }
+
+    .descriptionReverse {
+      font-size: 15px;
+      line-height: 15px;
+      font-weight: 600;
+      color: $dark-gray-200;
+      max-width: 600px;
+
+      @media screen and (max-width: 1240px) {
+        margin: 0 0 20px 0;
+        text-align: center;
+      }
+    }
+
+    .number {
+      width: 75px;
+      font-size: 14px;
+      line-height: 14px;
+      font-family: Benzin;
+      color: $white;
+
+      @media screen and (max-width: 690px) {
+        display: none;
+      }
+    }
+
+    .numberReverse {
+      width: 75px;
+      font-size: 14px;
+      line-height: 14px;
+      font-family: Benzin;
+      color: $white;
+      text-align: end;
+
+      @media screen and (max-width: 690px) {
+        display: none;
+      }
+    }
+
+    .done {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 85px;
+
+      @media screen and (max-width: 1240px) {
+        display: none;
+      }
+
+      .title {
+        font-size: 16px;
+        line-height: 16px;
+      }
+
+      .text {
+        font-size: 15px;
+        line-height: 15px;
+        font-family: Raleway;
+        color: $dark-gray-200;
+      }
+    }
+
+    .container {
+      border-top: 1px solid $dark-gray-200;
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      perspective: 80vw;
+      transform-origin: top;
+      height: 125px;
+      align-items: center;
+      padding: 0 15px 0 15px;
+
+      &:last-of-type {
+        border-bottom: 1px solid $dark-gray-200;
+      }
+
+      &:hover {
+        .outer {
+          .container {
+            opacity: 1;
+          }
+        }
+      }
+
+      @media screen and (max-width: 530px) {
+        height: 200px;
+      }
+    }
+
+    h1 {
+      color: white;
+      text-transform: uppercase;
+      font-family: Benzin;
+      font-size: 1.9vw;
+      font-weight: 600;
+      margin: 0px;
+      text-decoration: none;
+      text-align: end;
+
+      @media screen and (max-width: 1240px) {
+        font-size: 25px;
+        text-align: center;
+      }
+    }
+
+    .text {
+      font-size: 0.9vw;
+      font-family: Benzin;
+      color: $dark-gray-200;
+    }
+
+    .outer {
+      display: flex;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      will-change: top;
+
+      .inner {
+        background-color: $white;
+        background-image: url("../../../assets/images/whiteBackground.svg");
+        position: absolute;
+        white-space: nowrap;
+        height: 100%;
+        top: 100%;
+        display: flex;
+        will-change: top;
+
+        .container {
+          display: flex;
+          align-items: center;
+          animation: slider 12s linear infinite;
+          transition: opacity 0.3s;
+          position: relative;
+          opacity: 0;
+
+          &:nth-of-type(2) {
+            transition-delay: -4s;
+          }
+
+          &:nth-of-type(3) {
+            transition-delay: -6s;
+          }
+
+          .imageContainer {
+            height: 6vw;
+            width: 16vw;
+            position: relative;
+            overflow: hidden;
+            border-radius: 3vw;
+            margin-left: 1vw;
+            margin-right: 1vw;
+            display: flex;
+
+            img {
+              object-fit: cover;
+            }
+          }
+
+          p {
+            color: black;
+          }
+        }
+      }
+
+      .background {
+        background-color: $white;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 100%;
+      }
+    }
+  }
+
+  .footer {
+    color: white;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+
+    a {
+      font-size: 3vw;
+      border: 2px solid white;
+      padding: 0px 10px 0px 10px;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+  }
+}
+
+@keyframes slider {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}

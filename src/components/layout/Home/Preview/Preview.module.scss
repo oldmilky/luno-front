@@ -1,0 +1,167 @@
+@import "src/assets/styles/variables.scss";
+
+.preview {
+  margin: 115px auto 150px;
+  max-width: 1500px;
+  height: 870px;
+  padding: 0 15px 0 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  @media screen and (max-width: 525px) {
+    margin: 115px auto 0;
+  }
+
+  .title {
+    font-size: 130px;
+    color: $white;
+    font-family: Benzin;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+
+    @media screen and (max-width: 1520px) {
+      font-size: 110px;
+    }
+
+    @media screen and (max-width: 1310px) {
+      display: none;
+    }
+  }
+
+  .title2 {
+    font-size: 90px;
+    color: $white;
+    font-family: Benzin;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    display: none;
+    text-align: center;
+
+    @media screen and (max-width: 1310px) {
+      display: block;
+    }
+
+    @media screen and (max-width: 690px) {
+      font-size: 70px;
+    }
+
+    @media screen and (max-width: 525px) {
+      font-size: 50px;
+    }
+  }
+
+  .planet {
+    position: absolute;
+    top: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @media screen and (max-width: 890px) {
+      top: 330px;
+    }
+
+    @media screen and (max-width: 550px) {
+      top: 270px;
+    }
+
+    @media screen and (max-width: 525px) {
+      top: 190px;
+    }
+  }
+
+  .button {
+    position: absolute;
+    top: 180px;
+    right: 200px;
+    background: $white-gradient;
+    width: 220px;
+    height: 65px;
+    color: $black;
+    font-family: Benzin;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 8px;
+
+    @media screen and (max-width: 1310px) {
+      display: none;
+    }
+
+    &:hover {
+      .text {
+        color: $white;
+      }
+    }
+
+    .circle {
+      background: $gray-gradient;
+    }
+  }
+
+  .buttonActive {
+    position: absolute;
+    top: 150px;
+    right: 200px;
+    background: $gray-gradient;
+    width: 220px;
+    height: 65px;
+    color: $white;
+    font-family: Benzin;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+
+  .subtitle {
+    font-family: Dreams;
+    color: $gray-200;
+    font-size: 23px;
+    position: absolute;
+    top: 530px;
+    left: -20px;
+    max-width: 370px;
+    transform: rotate(-10deg);
+    letter-spacing: 2px;
+
+    @media screen and (max-width: 1310px) {
+      top: 900px;
+
+      width: 80%;
+      max-width: 80%;
+      text-align: center;
+    }
+
+    @media screen and (max-width: 1310px) {
+      display: none !important;
+    }
+  }
+
+  .subtitle2 {
+    font-family: Dreams;
+    color: $gray-200;
+    font-size: 23px;
+    position: absolute;
+    top: 900px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 570px;
+    letter-spacing: 2px;
+    display: none;
+    width: 80%;
+    text-align: center;
+
+    @media screen and (max-width: 1310px) {
+      display: block;
+    }
+
+    @media screen and (max-width: 550px) {
+      top: 670px;
+    }
+
+    @media screen and (max-width: 525px) {
+      top: 570px;
+      font-size: 17px;
+    }
+  }
+}

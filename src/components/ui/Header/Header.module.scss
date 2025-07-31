@@ -1,0 +1,118 @@
+@import "src/assets/styles/variables.scss";
+
+.header {
+  max-width: 1620px;
+  margin: 10px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px 0 15px;
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  .title {
+    font-size: 20px;
+    font-family: Benzin;
+    color: $white;
+    font-weight: 700;
+  }
+
+  .titleWhite {
+    font-size: 20px;
+    font-family: Benzin;
+    color: $black;
+    font-weight: 700;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+
+  @media screen and (max-width: 1240px) {
+    display: none;
+  }
+
+  .text {
+    font-size: 17px;
+    color: #b5c1c6;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    position: relative;
+
+    &:hover {
+      color: $white;
+      transition: 0.3s;
+    }
+  }
+
+  .textWhite {
+    color: $dark-gray-200;
+    transition: 0.3s;
+
+    &:hover {
+      color: $black;
+      transition: 0.3s;
+    }
+  }
+
+  .active {
+    color: $white;
+  }
+
+  .activeWhite {
+    color: $black;
+  }
+
+  .indicator {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: $white;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+  }
+
+  .indicatorWhite {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: $black;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+  }
+}
+
+.buttons {
+  position: relative;
+  .lines {
+    position: absolute;
+    width: 40%;
+    height: 1px;
+    background-color: $white;
+    bottom: -10px;
+    right: 0;
+  }
+}
+
+.button {
+  font-size: 16px;
+  font-family: Benzin;
+  //   color: $white;
+  font-weight: 500;
+  cursor: pointer;
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+}

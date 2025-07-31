@@ -1,0 +1,86 @@
+@import 'src/assets/styles/variables.scss';
+
+.player {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    border-top: 2px solid $gray-100;
+    border-left: 2px solid $gray-100;
+    border-right: 2px solid $gray-100;
+    box-shadow: $shadow-200;
+
+    .playerBackground {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size: cover;
+        background-position: center;
+        border-radius: 24px;
+    }
+
+    video {
+        border-radius: 24px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .controls {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        // height: 60px;
+        background: rgba(13, 14, 17, 0.30);
+        -webkit-backdrop-filter: blur(3px);
+        backdrop-filter: blur(3px);
+        border-bottom-right-radius: 24px;
+        border-bottom-left-radius: 24px;
+        width: 100%;
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 20px 15px 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .numbers {
+        font-size: 17px;
+        color: $white;
+    }
+
+    .track {
+        background: #2a2c3898 !important;
+        margin: 0;
+        padding: 0;
+        border-radius: 0 !important;
+    }
+
+    .volume {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .volumeRange {
+        width: 100px;
+    }
+}

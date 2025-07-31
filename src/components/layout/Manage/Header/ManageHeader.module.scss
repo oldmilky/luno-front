@@ -1,0 +1,121 @@
+@import "src/assets/styles/variables.scss";
+
+.manageButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  .title {
+    font-size: 30px;
+    font-weight: 600;
+    font-family: Benzin;
+    text-transform: uppercase;
+    color: $white;
+    margin: 0;
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+  }
+
+  .button {
+    padding: 0 30px 0 30px;
+    height: 70px;
+    font-size: 15px;
+    font-weight: 400;
+    color: $white;
+    background: $dark-gray-300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    font-family: Benzin;
+
+    &:first-of-type {
+      border-top-left-radius: 16px;
+      border-bottom-left-radius: 16px;
+    }
+
+    &:last-of-type {
+      border-top-right-radius: 16px;
+      border-bottom-right-radius: 16px;
+    }
+
+    &:hover {
+      color: $white;
+      transition: 0.3s;
+    }
+  }
+
+  .buttonActive {
+    background: $dark-gray-200;
+    color: $white;
+  }
+}
+
+.manageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 85px;
+  background: $black;
+  border-radius: 24px;
+  margin: 100px 0 0;
+
+  .title {
+    font-size: 60px;
+    font-weight: 700;
+    font-family: Benzin;
+    text-transform: uppercase;
+    color: $white;
+    margin: 0;
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .search {
+    background: $dark-gray-100;
+    width: 250px;
+    height: 65px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0 20px 0 20px;
+  }
+
+  .input {
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  .create {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 150px;
+    height: 65px;
+    background: $white;
+    border-radius: 16px;
+    transition: 0.3s;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: Benzin;
+    color: $black;
+
+    &:hover {
+      transform: translateY(-4px);
+      transition: 0.3s;
+    }
+  }
+}

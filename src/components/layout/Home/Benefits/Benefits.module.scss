@@ -1,0 +1,234 @@
+@import 'src/assets/styles/variables.scss';
+
+.benefits {
+    margin: 0 auto;
+    padding: 100px 0 45px 0;
+    // background: $black url(../../../../assets/images/dust.png) repeat;
+
+    .content {
+        padding: 0 15px 0 15px;
+    }
+
+    .titles {
+        position: relative;
+        max-width: 1620px;
+        margin: 0 auto;
+    }
+
+    .title {
+        font-size: 130px;
+        color: $white;
+        font-family: Benzin;
+        font-weight: 700;
+        line-height: 130px;
+
+        @media screen and (max-width: 1310px) {
+            font-size: 90px;
+            line-height: normal;
+        }
+
+        @media screen and (max-width: 845px) {
+            font-size: 70px;
+        }
+
+        @media screen and (max-width: 660px) {
+            font-size: 60px;
+        }
+
+        @media screen and (max-width: 575px) {
+            font-size: 50px;
+        }
+
+        @media screen and (max-width: 475px) {
+            font-size: 45px;
+        }
+    }
+
+    .title2 {
+        font-size: 130px;
+        color: $white;
+        font-family: Benzin;
+        font-weight: 700;
+        margin: 0;
+        line-height: 130px;
+        text-align: end;
+
+        @media screen and (max-width: 1310px) {
+            font-size: 90px;
+            line-height: normal;
+        }
+
+        @media screen and (max-width: 845px) {
+            font-size: 70px;
+        }
+
+        @media screen and (max-width: 660px) {
+            font-size: 60px;
+        }
+
+        @media screen and (max-width: 575px) {
+            font-size: 50px;
+        }
+
+        @media screen and (max-width: 475px) {
+            font-size: 45px;
+        }
+
+        @media screen and (max-width: 435px) {
+            font-size: 40px;
+        }
+
+        @media screen and (max-width: 385px) {
+            font-size: 35px;
+        }
+    }
+
+    .subtitle {
+        font-family: Dreams;
+        color: $dark-gray-200;
+        font-size: 23px;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        letter-spacing: 2px;
+        max-width: 430px;
+
+        @media screen and (max-width: 870px) {
+            top: 220px;
+        }
+
+        @media screen and (max-width: 660px) {
+            top: 180px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100%;
+            max-width: 405px;
+        }
+
+        @media screen and (max-width: 525px) {
+            top: 200px;
+            font-size: 17px;
+            width: 90%;
+        }
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 100px 0 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .item {
+        padding: 0 20px 0 20px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: background .2s ease-in-out;
+
+        @media screen and (max-width: 1040px) {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            height: 100%;
+        }
+    }
+
+    .wrapper {
+        max-width: 1620px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        @media screen and (max-width: 500px) {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+    }
+
+    .wrap {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .itemTitle {
+        color: $white;
+        font-size: 40px;
+        font-family: Benzin;
+        font-weight: 600;
+        width: 475px;
+
+        @media screen and (max-width: 815px) {
+            font-size: 30px;
+        }
+    }
+
+    .itemTitleActive {
+        color: $black;
+        font-size: 40px;
+        font-family: Benzin;
+        font-weight: 600;
+        width: 475px;
+
+        @media screen and (max-width: 815px) {
+            font-size: 30px;
+        }
+    }
+
+    .number {
+        font-size: 25px;
+        color: $white;
+        font-family: Benzin;
+        font-weight: 600;
+        width: 80px;
+
+        @media screen and (max-width: 815px) {
+            font-size: 20px;
+        }
+    }
+
+    .numberActive {
+        color: $black;
+        font-size: 25px;
+        font-family: Benzin;
+        font-weight: 600;
+        width: 80px;
+    }
+
+    .text {
+        color: $white;
+        font-size: 17px;
+        font-weight: 600;
+        max-width: 700px;
+        text-transform: uppercase;
+    }
+
+    .textMobile {
+        color: $dark-gray-400;
+        font-size: 16px;
+        font-weight: 600;
+        max-width: 700px;
+        text-transform: uppercase;
+        display: none;
+
+        @media screen and (max-width: 1040px) {
+            display: block;
+            margin: 20px 0 30px;
+        }
+    }
+
+    .active {
+        transition: background .2s ease-in-out;
+        background: $dark-gray-300;
+    }
+}

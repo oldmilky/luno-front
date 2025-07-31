@@ -1,0 +1,57 @@
+@import 'src/assets/styles/variables.scss';
+
+.header {
+    padding: 30px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
+
+    .button {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: $dark-gray-400;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .burger {
+        width: 100%;
+
+        &::after,
+        &::before {
+            content: "";
+            display: block;
+            height: 2px;
+            width: 40%;
+            margin: auto;
+            background-color: white;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        &::after {
+            top: -5px;
+        }
+
+        &::before {
+            top: 5px;
+        }
+    }
+
+    .burgerActive {
+        &::after {
+            transform: rotate(45deg);
+            top: -1px;
+        }
+
+        &::before {
+            transform: rotate(-45deg);
+            top: 0px;
+        }
+
+    }
+}
