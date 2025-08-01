@@ -12,6 +12,11 @@
         margin: 0;
         width: 630px;
         height: 630px;
+        
+        // Performance optimizations
+        will-change: transform;
+        backface-visibility: hidden;
+        transform: translateZ(0);
 
         @media screen and (max-width: 740px) {
             width: 550px;
@@ -20,11 +25,18 @@
             align-items: center;
             justify-content: center;
             animation: none;
+            will-change: auto; // Remove will-change when animation is disabled
         }
 
         @media screen and (max-width: 550px) {
             width: 370px;
             height: 370px;
+        }
+        
+        // Optimize for reduced motion preference
+        @media (prefers-reduced-motion: reduce) {
+            animation: none;
+            will-change: auto;
         }
     }
 
@@ -32,6 +44,10 @@
         position: absolute;
         top: 10px;
         left: -125px;
+        
+        // Performance optimization for rings if they exist
+        will-change: transform;
+        backface-visibility: hidden;
     }
 }
 

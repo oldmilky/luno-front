@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast";
 import AuthProvider from "@/providers/AuthProvider/AuthProvider";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { AnimatePresence } from "framer-motion";
+import { Raleway } from 'next/font/google'
 
 type TypeAppProps = AppProps & TypeComponentAuthFields;
 
@@ -18,18 +19,28 @@ const queryClient = new QueryClient({
   },
 });
 
+const raleway = Raleway({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400', '500', '600', '700'],
+  style: ['normal'],
+  display: 'swap',
+  preload: true,
+})
+
 function App({ Component, pageProps, router }: TypeAppProps) {
   return (
-    <Provider store={store}>
-      <Toaster position="top-center" />
-      <QueryClientProvider client={queryClient}>
-        <AuthProvider Component={Component}>
-          <AnimatePresence mode="wait" initial={false}>
-            <Component key={router.route} {...pageProps} />
-          </AnimatePresence>
-        </AuthProvider>
-      </QueryClientProvider>
-    </Provider>
+    <div className={raleway.className}>
+      <Provider store={store}>
+        <Toaster position="top-center" />
+        <QueryClientProvider client={queryClient}>
+          <AuthProvider Component={Component}>
+            <AnimatePresence mode="wait" initial={false}>
+              <Component key={router.route} {...pageProps} />
+            </AnimatePresence>
+          </AuthProvider>
+        </QueryClientProvider>
+      </Provider>
+    </div>
   );
 }
 

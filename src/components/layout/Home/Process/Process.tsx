@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import { leftToRight, rightToLeft } from "@/assets/animations/animations";
 import { useMediaQuery } from "react-responsive";
 import useTranslation from "next-translate/useTranslation";
+import { Element } from "react-scroll";
 
 const Process: FC = () => {
   const ParagraphDynamic = useMemo(
@@ -20,41 +21,47 @@ const Process: FC = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 1350px)" });
   const { t } = useTranslation("common");
 
-  const mobileLeftToRight = useMemo(() => ({
-    hidden: {
-      x: isMobile ? -20 : -45,
-      opacity: 0,
-    },
-    visible: (custom: number) => ({
-      x: 0,
-      opacity: 1,
-      transition: {
-        delay: custom * 0.15,
-        duration: 0.4,
-        ease: [0.16, 1, 0.3, 1],
-        type: "spring",
-        stiffness: 50,
+  const mobileLeftToRight = useMemo(
+    () => ({
+      hidden: {
+        x: isMobile ? -20 : -45,
+        opacity: 0,
       },
+      visible: (custom: number) => ({
+        x: 0,
+        opacity: 1,
+        transition: {
+          delay: custom * 0.15,
+          duration: 0.4,
+          ease: [0.16, 1, 0.3, 1],
+          type: "spring",
+          stiffness: 50,
+        },
+      }),
     }),
-  }), [isMobile]);
+    [isMobile]
+  );
 
-  const mobileRightToLeft = useMemo(() => ({
-    hidden: {
-      x: isMobile ? 20 : 45,
-      opacity: 0,
-    },
-    visible: (custom: number) => ({
-      x: 0,
-      opacity: 1,
-      transition: {
-        delay: custom * 0.15,
-        duration: 0.4,
-        ease: [0.10, 1, 0.3, 1],
-        type: "spring",
-        stiffness: 50,
+  const mobileRightToLeft = useMemo(
+    () => ({
+      hidden: {
+        x: isMobile ? 20 : 45,
+        opacity: 0,
       },
+      visible: (custom: number) => ({
+        x: 0,
+        opacity: 1,
+        transition: {
+          delay: custom * 0.15,
+          duration: 0.4,
+          ease: [0.1, 1, 0.3, 1],
+          type: "spring",
+          stiffness: 50,
+        },
+      }),
     }),
-  }), [isMobile]);
+    [isMobile]
+  );
 
   const renderTitles = useCallback(() => {
     if (isMobile) {
@@ -166,27 +173,29 @@ const Process: FC = () => {
   );
 
   return (
-    <motion.section
-      className={s.process}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-    >
-      <div className={s.content}>
-        {renderTitles()}
-        <div className={s.container}>
-          {processItems.map((item) =>
-            renderProcessItem(
-              item.number,
-              item.subtitle,
-              item.text,
-              item.variants,
-              item.custom
-            )
-          )}
+    <Element name="development">
+      <motion.section
+        className={s.process}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <div className={s.content}>
+          {renderTitles()}
+          <div className={s.container}>
+            {processItems.map((item) =>
+              renderProcessItem(
+                item.number,
+                item.subtitle,
+                item.text,
+                item.variants,
+                item.custom
+              )
+            )}
+          </div>
         </div>
-      </div>
-    </motion.section>
+      </motion.section>
+    </Element>
   );
 };
 

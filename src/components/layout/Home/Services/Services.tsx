@@ -8,7 +8,8 @@ import Button from "@/components/animate/Button/Button";
 import dynamic from "next/dynamic";
 import { useMediaQuery } from "react-responsive";
 import useTranslation from "next-translate/useTranslation";
-import gsap from "gsap";
+// Use optimized dynamic imports
+import { loadGSAP } from "@/utils/dynamicImports";
 import Modal from "./Modal/Modal";
 import Link from "next/link";
 import { IService } from "@/interfaces/service.interface";
@@ -48,22 +49,31 @@ const Services: FC<{ services: IService[] }> = ({ services }) => {
   const cursor = useRef(null);
   const cursorLabel = useRef(null);
 
+  const gsapRef = useRef<any>(null);
+
+  // Load GSAP dynamically
+  useEffect(() => {
+    loadGSAP().then((gsap) => {
+      gsapRef.current = gsap;
+    });
+  }, []);
+
   const handleMouseMove = useCallback((e: MouseEvent) => {
     const { pageX, pageY } = e;
-    if (modalContainer.current && cursor.current && cursorLabel.current) {
-      gsap.to(modalContainer.current, {
+    if (modalContainer.current && cursor.current && cursorLabel.current && gsapRef.current) {
+      gsapRef.current.to(modalContainer.current, {
         left: pageX,
         top: pageY,
         duration: 0.5,
         ease: "power3",
       });
-      gsap.to(cursor.current, {
+      gsapRef.current.to(cursor.current, {
         left: pageX,
         top: pageY,
         duration: 0.25,
         ease: "power3",
       });
-      gsap.to(cursorLabel.current, {
+      gsapRef.current.to(cursorLabel.current, {
         left: pageX,
         top: pageY,
         duration: 0.25,
@@ -120,7 +130,7 @@ const Services: FC<{ services: IService[] }> = ({ services }) => {
         onMouseEnter={() => handleModalEnter(index)}
         onMouseLeave={handleModalLeave}
       >
-        <Link href={"/service"}>
+        <Link href={`/service/${item.slug}`}>
           <div className={s.wrap}>
             <div className={s.marker}>{item.marker}</div>
             <p className={s.cardTitle}>

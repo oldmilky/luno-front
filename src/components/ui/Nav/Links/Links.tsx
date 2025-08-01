@@ -34,11 +34,6 @@ const navItems = [
     href: "/team",
   },
   {
-    title: "О НАС",
-    titleEn: "ABOUT US",
-    href: "/about",
-  },
-  {
     title: "ЗАКАЗАТЬ",
     titleEn: "ORDER NOW",
     href: "/contacts",
@@ -65,7 +60,9 @@ const Links: FC = () => {
           }}
           className={s.nav}
         >
-          <p className={s.subtitle}>Navigation</p>
+          <p className={s.subtitle}>
+            {lang === "en" ? "Navigation" : "Навигация"}
+          </p>
           <div className={s.line} />
           <div className={s.container}>
             {navItems.map((data, index) => {
@@ -90,7 +87,9 @@ const Links: FC = () => {
                       }
                       className={s.indicator}
                     ></motion.div>
-                    <p className={s.title}>{lang === "en" ? data.titleEn : data.title}</p>
+                    <p className={s.title}>
+                      {lang === "en" ? data.titleEn : data.title}
+                    </p>
                   </Link>
                 </motion.div>
               );
@@ -98,37 +97,50 @@ const Links: FC = () => {
           </div>
           <div className={s.line2} />
           <div className={s.contacts}>
-            <div className={s.contact}>
+            <Link
+              href="https://t.me/rodion914"
+              target="_blank"
+              className={s.contact}
+            >
               <Image
                 className={s.telegram}
-                width={20}
-                height={20}
+                width={30}
+                height={30}
                 src={telegram}
                 alt="telegram"
               />
               TELEGRAM
-            </div>
-            <div className={s.contact}>
-              <Image
-                className={s.discord}
-                width={22}
-                height={22}
-                src={discord}
-                alt="discord"
-              />
-              DISCORD
-            </div>
+            </Link>
 
-            <div className={s.contact}>
+            <Link
+              href="https://wa.me/77057009801"
+              target="_blank"
+              className={s.contact}
+            >
               <Image
                 className={s.whatsapp}
-                width={19}
-                height={19}
+                width={30}
+                height={30}
                 src={whatsapp}
                 alt="whatsapp"
               />
               WHATSAPP
-            </div>
+            </Link>
+
+            <Link
+              href="https://t.me/luno_web"
+              target="_blank"
+              className={s.contact}
+            >
+              <Image
+                className={s.telegram}
+                width={30}
+                height={30}
+                src={telegram}
+                alt="telegram"
+              />
+              TG CHANNEL
+            </Link>
           </div>
         </div>
       </div>

@@ -45,6 +45,7 @@
     letter-spacing: 0.5px;
     transition: 0.3s;
     position: relative;
+    cursor: pointer;
 
     &:hover {
       color: $white;
@@ -71,6 +72,17 @@
   }
 
   .indicator {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: $white;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+  }
+
+  .indicator2 {
     position: absolute;
     width: 7px;
     height: 7px;

@@ -5,10 +5,31 @@ import nextTranslate from "next-translate-plugin";
 const nextConfig = {
   reactStrictMode: false,
   poweredByHeader: false,
-  optimizeFonts: false,
+  // optimizeFonts: true, // Default is true, removing the false override
   
   experimental: {
     optimizePackageImports: ['framer-motion'],
+  },
+  
+  // Enable compression for better performance
+  compress: true,
+  
+  // Image optimization
+  images: {
+    formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+      {
+        protocol: "http", 
+        hostname: "**",
+      },
+    ],
   },
   
   webpack: (config, { dev, isServer }) => {
@@ -40,37 +61,24 @@ const nextConfig = {
     defaultLocale: "ru",
     locales: ["en", "ru"],
   },
-  images: {
-    //optimized: true,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**",
-      },
-      {
-        protocol: "http",
-        hostname: "**",
-      },
-    ],
-  },
   async rewrites() {
     return [
-      // {
-      //   source: "/api/:path*",
-      //   destination: "https://domination-cheats.com/api/:path*",
-      // },
-      // {
-      //   source: "/uploads/:path*",
-      //   destination: "https://domination-cheats.com/uploads/:path*",
-      // },
       {
         source: "/api/:path*",
-        destination: "http://localhost:4200/api/:path*",
+        destination: "https://lunoweb.com/api/:path*",
       },
       {
         source: "/uploads/:path*",
-        destination: "http://localhost:4200/uploads/:path*",
+        destination: "https://lunoweb.com/uploads/:path*",
       },
+      // {
+      //   source: "/api/:path*",
+      //   destination: "http://localhost:4200/api/:path*",
+      // },
+      // {
+      //   source: "/uploads/:path*",
+      //   destination: "http://localhost:4200/uploads/:path*",
+      // },
     ];
   },
 };

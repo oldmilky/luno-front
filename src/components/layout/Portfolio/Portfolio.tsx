@@ -4,7 +4,7 @@ import Modal from "./Modal/Modal";
 import Project from "./Project/Project";
 import { projects } from "./Projects";
 import s from "./Portfolio.module.scss";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import AnimatedText from "@/components/animate/Symbol/Symbol";
 import Symbol from "@/components/animate/Symbol/Symbol";
 import SplitTextScreen from "@/components/animate/SplitText/SplitText2";
@@ -17,10 +17,28 @@ import Filter from "./Filters/Filter";
 import MaskText from "@/components/animate/MaskText/MaskText";
 import { IProject } from "@/interfaces/project.interface";
 
+type FilterType = "all" | "sites" | "designs";
+
 const Portfolio: FC<{ projects: IProject[] }> = ({ projects }) => {
   const [modal, setModal] = useState({ active: false, index: 0 });
+  const [activeFilter, setActiveFilter] = useState<FilterType>("all");
   const isMobile = useMediaQuery({ query: "(max-width: 1425px)" });
   const { t, lang } = useTranslation("common");
+
+  // Функция фильтрации проектов
+  const getFilteredProjects = (): IProject[] => {
+    switch (activeFilter) {
+      case "sites":
+        return projects.filter((project) => project.develop);
+      case "designs":
+        return projects.filter((project) => project.design);
+      case "all":
+      default:
+        return projects;
+    }
+  };
+
+  const filteredProjects = getFilteredProjects();
 
   return (
     <motion.section
@@ -56,31 +74,48 @@ const Portfolio: FC<{ projects: IProject[] }> = ({ projects }) => {
           />
         </div>
       )}
-      <Filter />
+      <Filter activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
       <div className={s.projects}>
-        {projects.map((project, index) => {
-          return (
-            <motion.div
-              key={index}
-              custom={1.2 + index * 0.2}
-              variants={index % 2 === 0 ? bottomToTop : bottomToTop}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-            >
-              <Project
-                index={index}
-                name={project.name}
-                nameEn={project.nameEn}
-                develop={project.develop}
-                design={project.design}
-                typeService={project.typeService}
-                setModal={setModal}
-                slug={project.slug}
-              />
-            </motion.div>
-          );
-        })}
+        <AnimatePresence mode="popLayout">
+          {filteredProjects.map((project, index) => {
+            return (
+              <motion.div
+                key={`${project._id}-${project.slug}`}
+                custom={1.2 + index * 0.2}
+                variants={bottomToTop}
+                initial="hidden"
+                animate="visible"
+                exit={{
+                  opacity: 0,
+                  scale: 0.8,
+                  transition: {
+                    duration: 0.3,
+                    ease: "easeInOut",
+                  },
+                }}
+                layout
+                transition={{
+                  layout: {
+                    duration: 0.4,
+                    ease: "easeInOut",
+                  },
+                }}
+                viewport={{ once: true, amount: 0.1 }}
+              >
+                <Project
+                  index={index}
+                  name={project.name}
+                  nameEn={project.nameEn}
+                  develop={project.develop}
+                  design={project.design}
+                  typeService={project.typeService}
+                  setModal={setModal}
+                  slug={project.slug}
+                />
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
         <div className={s.planetWrap}>
           <Image
             draggable={false}
@@ -90,7 +125,7 @@ const Portfolio: FC<{ projects: IProject[] }> = ({ projects }) => {
           />
         </div>
       </div>
-      <Modal modal={modal} projects={projects} />
+      <Modal modal={modal} projects={filteredProjects} />
     </motion.section>
   );
 };

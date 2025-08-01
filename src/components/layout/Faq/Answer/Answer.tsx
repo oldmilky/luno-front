@@ -24,7 +24,7 @@ const textAnimation = {
     y: -20,
     height: 0,
     transition: {
-      duration: 0.2,
+      duration: 0.3,
       ease: "easeIn",
     },
   },

@@ -13,6 +13,8 @@ import {
 import { useMediaQuery } from "react-responsive";
 import { useRouter } from "next/router";
 import useTranslation from "next-translate/useTranslation";
+import { Links, navItems } from "./Links";
+import Image from "next/image";
 
 const Footer: FC = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 1350px)" });
@@ -21,39 +23,6 @@ const Footer: FC = () => {
   const isContacts = pathname.pathname === "/contacts";
 
   const { t, lang } = useTranslation("common");
-
-  const navItems = [
-    {
-      title: "НАШИ УСЛУГИ",
-      titleEn: "OUR SERVICES",
-      href: "/services",
-    },
-    {
-      title: "ПОРТФОЛИО",
-      titleEn: "PORTFOLIO",
-      href: "/cases",
-    },
-    {
-      title: "БЛОГ",
-      titleEn: "BLOG",
-      href: "/blogs",
-    },
-    {
-      title: "КОМАНДА",
-      titleEn: "OUR TEAM",
-      href: "/team",
-    },
-    {
-      title: "О НАС",
-      titleEn: "ABOUT US",
-      href: "/about",
-    },
-    {
-      title: "РАЗРАБОТКА",
-      titleEn: "DEVELOPMENT",
-      href: "/development",
-    },
-  ];
 
   return (
     <motion.footer
@@ -93,21 +62,12 @@ const Footer: FC = () => {
             custom={1.7}
             variants={rightToLeft}
           >
-            <a href="/catalog">
-              <SplitText className={s.network} text="TELEGRAM" />
-            </a>
-            <a href="/catalog">
-              <SplitText className={s.network} text="DISCORD" />
-            </a>
-            <a href="/catalog">
-              <SplitText className={s.network} text="WHATSAPP" />
-            </a>
-            <a href="/catalog">
-              <SplitText className={s.network} text="BEHANCE" />
-            </a>
-            <a href="/catalog">
-              <SplitText className={s.network} text="INSTAGRAM" />
-            </a>
+            {Links.map((item) => (
+              <Link className={s.link} href={item.link} target="_blank" key={item.text}>
+                <SplitText className={s.network} text={item.text} />
+                <Image width={20} height={20} src={item.logo} alt={item.text} />
+              </Link>
+            ))}
           </motion.div>
         </div>
       )}

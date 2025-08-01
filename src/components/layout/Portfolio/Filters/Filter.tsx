@@ -9,7 +9,14 @@ import typeLines from "@/assets/images/typeLines.svg";
 import typeMore from "@/assets/images/typeMore.svg";
 import Image from "next/image";
 
-const Filter: FC = () => {
+type FilterType = "all" | "sites" | "designs";
+
+interface FilterProps {
+  activeFilter: FilterType;
+  setActiveFilter: (filter: FilterType) => void;
+}
+
+const Filter: FC<FilterProps> = ({ activeFilter, setActiveFilter }) => {
   const [modal, setModal] = useState({ active: false, index: 0 });
   const isMobile = useMediaQuery({ query: "(max-width: 1425px)" });
   const { t, lang } = useTranslation("common");
@@ -22,24 +29,28 @@ const Filter: FC = () => {
       viewport={{ once: true, amount: 0.1 }}
     >
       <div className={s.container}>
-        <Button buttonClass={s.buttonActive} circleClass={s.circle}>
+        <Button
+          buttonClass={activeFilter === "all" ? s.buttonActive : s.button}
+          circleClass={s.circle}
+          onClick={() => setActiveFilter("all")}
+        >
           {t("portfolio.all")}
         </Button>
-        <Button buttonClass={s.button} circleClass={s.circle}>
+        <Button
+          buttonClass={activeFilter === "sites" ? s.buttonActive : s.button}
+          circleClass={s.circle}
+          onClick={() => setActiveFilter("sites")}
+        >
           {t("portfolio.sites")}
         </Button>
-        <Button buttonClass={s.button} circleClass={s.circle}>
+        <Button
+          buttonClass={activeFilter === "designs" ? s.buttonActive : s.button}
+          circleClass={s.circle}
+          onClick={() => setActiveFilter("designs")}
+        >
           {t("portfolio.designs")}
         </Button>
       </div>
-      {/* <div className={s.types}>
-        <Button buttonClass={s.typeActive} circleClass={s.circle}>
-          <Image src={typeLines} alt="typeLines" />
-        </Button>
-        <Button buttonClass={s.type} circleClass={s.circle}>
-          <Image src={typeMore} alt="typeMore" />
-        </Button>
-      </div> */}
     </motion.section>
   );
 };

@@ -6,7 +6,14 @@ import planet from "@/assets/images/planet.svg";
 const Planet: FC = () => {
   return (
     <div className={s.planets}>
-      <Image draggable={false} className={s.planet} src={planet} alt="planet" />
+      <Image
+        draggable={false}
+        className={s.planet}
+        src={planet}
+        alt="planet"
+        priority={true}
+        fetchPriority="high"
+      />
     </div>
   );
 };

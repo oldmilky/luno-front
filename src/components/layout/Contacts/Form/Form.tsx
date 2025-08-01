@@ -18,7 +18,7 @@ const Form: FC = () => {
     watchedValues,
   } = useContactForm();
 
-  const budgetOptions = ["< 1.500", "1.500 +", "5000 +"];
+  const budgetOptions = ["< 1.500", "3.000 +", "5.000 +", "10.000 +"];
   const serviceTypeOptions = [
     t("contacts.input4button"),
     t("contacts.input4button2"),

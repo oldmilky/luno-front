@@ -97,8 +97,14 @@
   }
 }
 
+.link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .network {
-  font-size: 25px;
+  font-size: 23px;
   font-family: Benzin;
   color: $white;
   transition: 0.3s;

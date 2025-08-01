@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import s from "./Modal.module.scss";
-import gsap from "gsap";
+import { loadGSAP } from "@/utils/dynamicImports";
 
 // Cyclic color pattern for projects
 const PROJECT_COLORS = ["#EBF9FF", "#0D0D0F", "#2A2F38"];
@@ -30,43 +30,56 @@ const Modal = ({ modal, projects }: any) => {
   const cursorLabel = useRef(null);
 
   useEffect(() => {
-    //Move Container
-    let xMoveContainer = gsap.quickTo(modalContainer.current, "left", {
-      duration: 0.5,
-      ease: "power3",
-    });
-    let yMoveContainer = gsap.quickTo(modalContainer.current, "top", {
-      duration: 0.5,
-      ease: "power3",
-    });
-    //Move cursor
-    let xMoveCursor = gsap.quickTo(cursor.current, "left", {
-      duration: 0.25,
-      ease: "power3",
-    });
-    let yMoveCursor = gsap.quickTo(cursor.current, "top", {
-      duration: 0.25,
-      ease: "power3",
-    });
-    //Move cursor label
-    let xMoveCursorLabel = gsap.quickTo(cursorLabel.current, "left", {
-      duration: 0.25,
-      ease: "power3",
-    });
-    let yMoveCursorLabel = gsap.quickTo(cursorLabel.current, "top", {
-      duration: 0.25,
-      ease: "power3",
+    let xMoveContainer: any, yMoveContainer: any, xMoveCursor: any, yMoveCursor: any, xMoveCursorLabel: any, yMoveCursorLabel: any;
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      if (xMoveContainer && yMoveContainer && xMoveCursor && yMoveCursor && xMoveCursorLabel && yMoveCursorLabel) {
+        const { pageX, pageY } = e;
+        xMoveContainer(pageX);
+        yMoveContainer(pageY);
+        xMoveCursor(pageX);
+        yMoveCursor(pageY);
+        xMoveCursorLabel(pageX);
+        yMoveCursorLabel(pageY);
+      }
+    };
+    
+    // Load GSAP dynamically and set up mouse handlers
+    loadGSAP().then((gsap) => {
+      //Move Container
+      xMoveContainer = gsap.quickTo(modalContainer.current, "left", {
+        duration: 0.5,
+        ease: "power3",
+      });
+      yMoveContainer = gsap.quickTo(modalContainer.current, "top", {
+        duration: 0.5,
+        ease: "power3",
+      });
+      //Move cursor
+      xMoveCursor = gsap.quickTo(cursor.current, "left", {
+        duration: 0.25,
+        ease: "power3",
+      });
+      yMoveCursor = gsap.quickTo(cursor.current, "top", {
+        duration: 0.25,
+        ease: "power3",
+      });
+      //Move cursor label
+      xMoveCursorLabel = gsap.quickTo(cursorLabel.current, "left", {
+        duration: 0.25,
+        ease: "power3",
+      });
+      yMoveCursorLabel = gsap.quickTo(cursorLabel.current, "top", {
+        duration: 0.25,
+        ease: "power3",
+      });
+
+      window.addEventListener("mousemove", handleMouseMove);
     });
 
-    window.addEventListener("mousemove", (e) => {
-      const { pageX, pageY } = e;
-      xMoveContainer(pageX);
-      yMoveContainer(pageY);
-      xMoveCursor(pageX);
-      yMoveCursor(pageY);
-      xMoveCursorLabel(pageX);
-      yMoveCursorLabel(pageY);
-    });
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
   return (

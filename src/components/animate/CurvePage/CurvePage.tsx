@@ -6,6 +6,8 @@ import useTranslation from "next-translate/useTranslation";
 import { useQuery } from "react-query";
 import { ProjectService } from "@/services/project.service";
 import { ServiceService } from "@/services/service.service";
+import logo from "@/assets/images/logo.svg";
+import Image from "next/image";
 
 type Routes = {
   [key: string]: string;
@@ -144,6 +146,7 @@ const Curve: FC<CurveProps> = ({ children, background }) => {
           className="background"
         />
         <motion.p className="route" {...anim(text)}>
+          <Image width={60} height={40} src={logo} alt="logo" />
           {routes[router.asPath] || routes[router.route]}
         </motion.p>
         {dimensions.width && dimensions.height && (
