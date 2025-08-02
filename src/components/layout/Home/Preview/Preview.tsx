@@ -1,15 +1,13 @@
 import { FC } from "react";
 import s from "./Preview.module.scss";
+import Planet from "@/components/ui/Planet/Planet";
+import { TypeAnimation } from "react-type-animation";
+import SplitTextScreen from "@/components/animate/SplitText/SplitText2";
+import Button from "@/components/animate/Button/Button";
 import { motion } from "framer-motion";
 import { bottomToTop } from "@/assets/animations/animations";
 import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
-import Button from "@/components/animate/Button/Button";
-import {
-  DynamicTypeAnimation,
-  DynamicSplitText,
-  DynamicPlanet,
-} from "@/utils/dynamicImports";
 
 const Preview: FC = () => {
   const { t, lang } = useTranslation("common");
@@ -23,7 +21,7 @@ const Preview: FC = () => {
       custom={1}
       variants={bottomToTop}
     >
-      <DynamicTypeAnimation
+      <TypeAnimation
         key={lang} // Принудительный перерендер при смене языка
         sequence={[
           `LUNO ${t("preview.sites")}`,
@@ -43,7 +41,7 @@ const Preview: FC = () => {
         "preview.designs"
       )}`}</h1>
       <div className={s.planet}>
-        <DynamicPlanet />
+        <Planet />
       </div>
       <Link href="/contacts">
         <Button
@@ -54,7 +52,7 @@ const Preview: FC = () => {
           {t("order.order")}
         </Button>
       </Link>
-      <DynamicSplitText
+      <SplitTextScreen
         text="We are Luno, we will create a dream site and design for you."
         className={s.subtitle}
       />

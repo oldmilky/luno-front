@@ -24,22 +24,22 @@ const nextConfig = {
   compress: true,
 
   // Оптимизация изображений
-  images: {
-    formats: ["image/webp", "image/avif"],
-    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 дней
-    dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**",
-      },
-      {
-        protocol: "http",
-        hostname: "**",
-      },
-    ],
-  },
+  // images: {
+  //   formats: ["image/webp", "image/avif"],
+  //   minimumCacheTTL: 60 * 60 * 24 * 30, // 30 дней
+  //   dangerouslyAllowSVG: true,
+  //   contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  //   remotePatterns: [
+  //     {
+  //       protocol: "https",
+  //       hostname: "**",
+  //     },
+  //     {
+  //       protocol: "http",
+  //       hostname: "**",
+  //     },
+  //   ],
+  // },
 
   webpack: (config, { dev, isServer }) => {
     // Оптимизации для production

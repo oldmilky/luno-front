@@ -11,8 +11,7 @@
     "dev": "next dev",
     "build": "next build && node scripts/generate-sitemap.js",
     "start": "next start",
-    "lint": "next lint",
-    "analyze": "ANALYZE=true npm run build"
+    "lint": "next lint"
   },
   "browserslist": {
     "production": [
@@ -62,6 +61,7 @@
     "sass": "^1.70.0"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^7.0.2",
     "@next/bundle-analyzer": "^15.4.5",
     "@types/node": "^20",
     "@types/react": "^18",

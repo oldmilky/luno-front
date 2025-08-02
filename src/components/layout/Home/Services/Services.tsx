@@ -60,16 +60,39 @@ const Services: FC<{ services: IService[] }> = ({ services }) => {
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     const { pageX, pageY } = e;
-    if (modalContainer.current && cursor.current && cursorLabel.current && gsapRef.current) {
+    if (
+      modalContainer.current &&
+      cursor.current &&
+      cursorLabel.current &&
+      gsapRef.current
+    ) {
       // Используем GSAP quickTo для лучшей производительности
-      gsapRef.current.quickTo(modalContainer.current, "left", { duration: 0.5, ease: "power3" })(pageX);
-      gsapRef.current.quickTo(modalContainer.current, "top", { duration: 0.5, ease: "power3" })(pageY);
-      
-      gsapRef.current.quickTo(cursor.current, "left", { duration: 0.25, ease: "power3" })(pageX);
-      gsapRef.current.quickTo(cursor.current, "top", { duration: 0.25, ease: "power3" })(pageY);
-      
-      gsapRef.current.quickTo(cursorLabel.current, "left", { duration: 0.25, ease: "power3" })(pageX);
-      gsapRef.current.quickTo(cursorLabel.current, "top", { duration: 0.25, ease: "power3" })(pageY);
+      gsapRef.current.quickTo(modalContainer.current, "left", {
+        duration: 0.5,
+        ease: "power3",
+      })(pageX);
+      gsapRef.current.quickTo(modalContainer.current, "top", {
+        duration: 0.5,
+        ease: "power3",
+      })(pageY);
+
+      gsapRef.current.quickTo(cursor.current, "left", {
+        duration: 0.25,
+        ease: "power3",
+      })(pageX);
+      gsapRef.current.quickTo(cursor.current, "top", {
+        duration: 0.25,
+        ease: "power3",
+      })(pageY);
+
+      gsapRef.current.quickTo(cursorLabel.current, "left", {
+        duration: 0.25,
+        ease: "power3",
+      })(pageX);
+      gsapRef.current.quickTo(cursorLabel.current, "top", {
+        duration: 0.25,
+        ease: "power3",
+      })(pageY);
     }
   }, []);
 
