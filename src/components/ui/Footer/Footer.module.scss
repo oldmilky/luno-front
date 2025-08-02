@@ -117,6 +117,10 @@
   @media screen and (max-width: 650px) {
     font-size: 21px;
   }
+
+  @media screen and (max-width: 435px) {
+    font-size: 18px;
+  }
 }
 
 .line {
@@ -148,6 +152,12 @@
   background: $dark-gray-300;
   margin: 0 15px 0 15px;
 
+  @media screen and (max-width: 555px) {
+    display: none;
+  }
+}
+
+.logos {
   @media screen and (max-width: 555px) {
     display: none;
   }

@@ -112,17 +112,17 @@ const Media: FC<MediaProps> = ({
             transition={{ duration: 0.5 }}
             style={{ zIndex: "3" }}
           >
-            <Image
-              draggable={false}
-              className={s.image}
-              src={imageItem.src}
-              alt={`media image ${imageItem.index + 1}`}
-              width={650}
-              height={350}
-              // loading="eager"
-              // loading="lazy"
-              // priority={false}
-            />
+            <div className={s.imageWrap}>
+              <Image
+                fill
+                sizes="(max-width: 700px) 90vw, 650px"
+                draggable={false}
+                className={s.image}
+                src={imageItem.src}
+                alt={`media image ${imageItem.index + 1}`}
+                priority={i === 0}
+              />
+            </div>
           </motion.div>
         ))}
       </div>
