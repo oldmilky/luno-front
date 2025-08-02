@@ -1,10 +1,13 @@
-import Portfolio from "@/components/layout/Portfolio/Portfolio";
-import CasesPages from "@/components/pages/Cases";
 import { toastError } from "@/components/ui/Toast/Toast";
 import { IProject } from "@/interfaces/project.interface";
-import Seo from "@/providers/Seo";
 import { ProjectService } from "@/services/project.service";
 import { GetStaticProps, NextPage } from "next";
+import dynamic from "next/dynamic";
+
+// Динамическая загрузка страницы Cases для code splitting
+const CasesPages = dynamic(() => import("@/components/pages/Cases"), {
+  ssr: true, // SSR важен для SEO
+});
 
 const CasesPage: NextPage<{ projects: IProject[] }> = ({ projects }) => {
   return <CasesPages projects={projects} />;
@@ -17,7 +20,9 @@ export const getStaticProps: GetStaticProps = async () => {
     projects = fetchedProjects.data;
   } catch (error) {
     console.error("Failed to fetch data:", error);
-    toastError("Failed to fetch data:");
+    if (typeof window !== "undefined") {
+      toastError("Failed to fetch data:");
+    }
   }
   return {
     props: {

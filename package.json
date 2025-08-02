@@ -11,7 +11,8 @@
     "dev": "next dev",
     "build": "next build && node scripts/generate-sitemap.js",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "ANALYZE=true npm run build"
   },
   "browserslist": {
     "production": [

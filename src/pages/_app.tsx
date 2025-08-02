@@ -3,43 +3,67 @@ import type { AppProps } from "next/app";
 import { TypeComponentAuthFields } from "@/interfaces/user.interface";
 import { Provider } from "react-redux";
 import { store } from "@/store/store";
-import { Toaster } from "react-hot-toast";
-import AuthProvider from "@/providers/AuthProvider/AuthProvider";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { AnimatePresence } from "framer-motion";
-import { Raleway } from 'next/font/google'
+import { Raleway } from "next/font/google";
 import { DefaultSeo } from "next-seo";
-import SEO from '@/providers/Seo/next-seo.config';
+import SEO from "@/providers/Seo/next-seo.config";
+import dynamic from "next/dynamic";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { useState } from "react";
+
+// Динамические импорты для крупных компонентов
+const AnimatePresence = dynamic(
+  () =>
+    import("framer-motion").then((mod) => ({ default: mod.AnimatePresence })),
+  { ssr: false }
+);
+
+const AuthProvider = dynamic(
+  () => import("@/providers/AuthProvider/AuthProvider"),
+  { ssr: false }
+);
 
 type TypeAppProps = AppProps & TypeComponentAuthFields;
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-    },
-  },
+const raleway = Raleway({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal"],
+  display: "swap",
+  preload: true,
 });
 
-const raleway = Raleway({
-  subsets: ['latin', 'cyrillic'],
-  weight: ['400', '500', '600', '700'],
-  style: ['normal'],
-  display: 'swap',
-  preload: true,
-})
-
 function App({ Component, pageProps, router }: TypeAppProps) {
+  // Создаем QueryClient только один раз
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            refetchOnWindowFocus: false,
+            staleTime: 5 * 60 * 1000, // 5 минут
+            cacheTime: 10 * 60 * 1000, // 10 минут
+          },
+        },
+      })
+  );
+
+  // Проверяем нужна ли анимация для данного маршрута
+  const needsAnimation =
+    router.pathname !== "/404" && !router.pathname.startsWith("/api");
+
   return (
     <div className={raleway.className}>
       <Provider store={store}>
-        <Toaster position="top-center" />
         <QueryClientProvider client={queryClient}>
           <AuthProvider Component={Component}>
-            <AnimatePresence mode="wait" initial={false}>
-              <DefaultSeo {...SEO} />
+            <DefaultSeo {...SEO} />
+            {needsAnimation ? (
+              <AnimatePresence mode="wait" initial={false}>
+                <Component key={router.route} {...pageProps} />
+              </AnimatePresence>
+            ) : (
               <Component key={router.route} {...pageProps} />
-            </AnimatePresence>
+            )}
           </AuthProvider>
         </QueryClientProvider>
       </Provider>

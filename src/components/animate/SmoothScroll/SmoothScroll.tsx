@@ -12,7 +12,7 @@ const SmoothScroll: FC<SmoothScrollProps> = ({ children }) => {
 
   useEffect(() => {
     // Инициализируем Lenis только если не на мобильном устройстве
-    if (typeof window !== 'undefined' && window.innerWidth > 1024) {
+    if (typeof window !== "undefined" && window.innerWidth > 1024) {
       window.scrollTo(0, 0);
 
       lenisRef.current = new Lenis({
@@ -38,7 +38,7 @@ const SmoothScroll: FC<SmoothScrollProps> = ({ children }) => {
         cancelAnimationFrame(rafRef.current);
         rafRef.current = null;
       }
-      
+
       // Уничтожаем Lenis
       if (lenisRef.current) {
         lenisRef.current.destroy();
