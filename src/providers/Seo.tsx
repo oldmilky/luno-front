@@ -22,15 +22,19 @@ const generateLanguageAlternates = (lang: "ru" | "en", path: string) => {
   const cleanPath = path === "/" ? "" : path;
   return [
     {
+      hrefLang: "x-default",
+      href: `https://lunoweb.com${cleanPath}`,
+    },
+    {
       hrefLang: "ru",
-      href: `https://lunoweb.com/${
-        lang === "ru" ? cleanPath : `ru${cleanPath}`
+      href: `https://lunoweb.com${
+        lang === "ru" ? cleanPath : `/ru${cleanPath}`
       }`,
     },
     {
       hrefLang: "en",
-      href: `https://lunoweb.com/${
-        lang === "en" ? cleanPath : `en${cleanPath}`
+      href: `https://lunoweb.com${
+        lang === "en" ? cleanPath : `/en${cleanPath}`
       }`,
     },
   ];
@@ -47,8 +51,9 @@ const Seo: FC<SeoProps> = ({
   breadcrumbs,
 }) => {
   const { asPath } = useRouter();
-  const fullCanonical = canonical + (asPath === "/" ? "" : asPath);
-  const languageAlternates = generateLanguageAlternates(lang, asPath);
+  const currentPath = asPath.split("?")[0];
+  const fullCanonical = `${canonical}${currentPath === "/" ? "" : currentPath}`;
+  const languageAlternates = generateLanguageAlternates(lang, currentPath);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -81,6 +86,20 @@ const Seo: FC<SeoProps> = ({
     ],
   };
 
+  const breadcrumbJsonLd =
+    breadcrumbs && breadcrumbs.length >= 2
+      ? {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: breadcrumbs.map((crumb, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name: crumb.name,
+            item: `https://lunoweb.com${crumb.path}`,
+          })),
+        }
+      : null;
+
   return (
     <>
       <NextSeo
@@ -90,7 +109,7 @@ const Seo: FC<SeoProps> = ({
         openGraph={{
           title,
           description,
-          url: canonical,
+          url: fullCanonical,
           locale: lang === "ru" ? "ru_RU" : "en_US",
           siteName: "LUNOWEB",
           images: [
@@ -98,7 +117,7 @@ const Seo: FC<SeoProps> = ({
               url: image,
               width: 1200,
               height: 630,
-              alt: "LUNOWEB — preview for social media",
+              alt: "LUNOWEB — preview",
               type: "image/jpeg",
             },
           ],
@@ -109,6 +128,7 @@ const Seo: FC<SeoProps> = ({
           cardType: "summary_large_image",
         }}
         languageAlternates={languageAlternates}
+        noindex={noindex}
         additionalMetaTags={[
           { name: "viewport", content: "width=device-width, initial-scale=1" },
           { name: "theme-color", content: "#000000" },
@@ -136,30 +156,17 @@ const Seo: FC<SeoProps> = ({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
 
-      {breadcrumbs && breadcrumbs.length >= 2 && (
+      {breadcrumbJsonLd && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              itemListElement: breadcrumbs.map((crumb, index) => ({
-                "@type": "ListItem",
-                position: index + 1,
-                name: crumb.name,
-                item: `https://lunoweb.com${crumb.path}`,
-              })),
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
         />
       )}
 
       <main>
-        {/* <StairsLayout> */}
         <Curve>
           <SmoothScroll>{children}</SmoothScroll>
         </Curve>
-        {/* </StairsLayout> */}
       </main>
     </>
   );
