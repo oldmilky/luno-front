@@ -1,8 +1,6 @@
 import ServicePages from "@/components/pages/Service";
 import { ServiceService } from "@/services/service.service";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import useTranslation from "next-translate/useTranslation";
-import { useRouter } from "next/router";
 import { IService } from "@/interfaces/service.interface";
 
 const ServicePage: NextPage<{ service: IService; services: IService[] }> = ({

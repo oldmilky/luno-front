@@ -83,47 +83,52 @@ const Collection: FC<{ projects: IProject[] }> = ({ projects }) => {
           </div>
         )}
         <div className={s.container}>
-          {projects.map((item, i) => (
-            <motion.div
-              className={s.card}
-              key={i}
-              custom={1.2 + i * 0.2}
-              variants={i % 2 === 0 ? mobileLeftToRight : mobileRightToLeft}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-            >
-              <Image
-                className={s.image}
-                src={item.image}
-                alt="mock"
-                width={480}
-                height={270}
-                draggable={false}
-              />
-              <div className={s.items}>
-                <p className={s.itemTitle}>
-                  {lang === "ru" ? item.name : item.nameEn}
-                </p>
-                {isMobile ? (
-                  <p className={s.text}>
-                    {lang === "ru" ? item.subtitle : item.subtitleEn}
+          {projects
+            .sort((a, b) => (a.sort || 0) - (b.sort || 0))
+            .slice(0, 4)
+            .map((item, i) => (
+              <motion.div
+                className={s.card}
+                key={i}
+                custom={1.2 + i * 0.2}
+                variants={i % 2 === 0 ? mobileLeftToRight : mobileRightToLeft}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+              >
+                <Image
+                  className={s.image}
+                  src={item.image}
+                  alt="mock"
+                  width={480}
+                  height={270}
+                  draggable={false}
+                />
+                <div className={s.items}>
+                  <p className={s.itemTitle}>
+                    {lang === "ru" ? item.name : item.nameEn}
                   </p>
-                ) : (
-                  <Paragraph
-                    paragraph={lang === "ru" ? item.subtitle : item.subtitleEn}
-                    className={s.text}
-                  />
-                )}
-                <div className={s.tags}>
-                  {/* {item.tags.slice(0, 4).map((tag, index) => (
+                  {isMobile ? (
+                    <p className={s.text}>
+                      {lang === "ru" ? item.subtitle : item.subtitleEn}
+                    </p>
+                  ) : (
+                    <Paragraph
+                      paragraph={
+                        lang === "ru" ? item.subtitle : item.subtitleEn
+                      }
+                      className={s.text}
+                    />
+                  )}
+                  <div className={s.tags}>
+                    {/* {item.tags.slice(0, 4).map((tag, index) => (
                     <SplitText className={s.tag} text={tag} key={index} />
                   ))} */}
-                  <SplitText className={s.tag} text={item.techs} key={i} />
+                    <SplitText className={s.tag} text={item.techs} key={i} />
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
         </div>
         <Link href="/cases">
           <Button buttonClass={s.view} circleClass={s.circle}>

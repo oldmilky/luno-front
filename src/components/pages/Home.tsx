@@ -11,13 +11,26 @@ import Footer from "../ui/Footer/Footer";
 import { IProject } from "@/interfaces/project.interface";
 import { IService } from "@/interfaces/service.interface";
 import { FC } from "react";
+import useTranslation from "next-translate/useTranslation";
 
 const Home: FC<{ projects: IProject[]; services: IService[] }> = ({
   projects,
   services,
 }) => {
+  const { lang } = useTranslation("common");
+
+  const title =
+    lang === "ru"
+      ? "LUNOWEB — Премиум разработка сайтов и дизайнов под ключ"
+      : "LUNOWEB — Premium turnkey website development and design";
+
+  const description =
+    lang === "ru"
+      ? "Создаём премиальные сайты под ключ: от дизайна и UX до запуска и SEO. Индивидуальный подход, гарантии результата."
+      : "We create premium websites: from UX and design to SEO. Full-cycle development with guaranteed results.";
+
   return (
-    <Seo title="LUNO - Разработка уникальных сайтов и дизайнов!">
+    <Seo title={title} description={description} lang={lang as "ru" | "en"}>
       <Header />
       <Preview />
 

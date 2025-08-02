@@ -45,6 +45,7 @@
     font-family: Benzin;
     font-weight: 700;
     line-height: 130px;
+    text-transform: uppercase;
 
     @media screen and (max-width: 1110px) {
       font-size: 90px;
@@ -98,6 +99,7 @@
     flex-wrap: wrap;
     gap: 15px;
     margin: 35px 0 0;
+    text-transform: uppercase;
   }
 
   .tag {

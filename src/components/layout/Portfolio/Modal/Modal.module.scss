@@ -1,57 +1,61 @@
-@import 'src/assets/styles/variables.scss';
+@import "src/assets/styles/variables.scss";
 
 .modalContainer {
-    height: 350px;
-    width: 500px;
-    position: absolute;
-    // background-color: white;
-    overflow: hidden;
-    pointer-events: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
+  height: 350px;
+  width: 500px;
+  position: absolute;
+  // background-color: white;
+  overflow: hidden;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
 }
 
 .modalSlider {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    transition: top 0.4s cubic-bezier(0.80, 0, 0.24, 1);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transition: top 0.4s cubic-bezier(0.8, 0, 0.24, 1);
 }
 
 .modal {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: url(../../../../assets/images/modalBackground.png) center center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(../../../../assets/images/modalBackground.png) center center;
 }
 
 .modal img {
-    height: auto;
-    border-radius: 8px;
+  height: auto;
+  border-radius: 8px;
+
+  width: 420px;
+  height: 250px;
+  object-fit: cover;
 }
 
 .cursor,
 .cursorLabel {
-    width: 95px;
-    height: 95px;
-    border-radius: 50%;
-    background: $white-gradient;
-    color: $black;
-    position: absolute;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: 600;
-    pointer-events: none;
-    text-transform: uppercase;
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  background: $white-gradient;
+  color: $black;
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  pointer-events: none;
+  text-transform: uppercase;
 }
 
 .cursorLabel {
-    background-color: transparent;
+  background-color: transparent;
 }

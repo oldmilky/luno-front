@@ -65,7 +65,7 @@ const Footer: FC = () => {
             {Links.map((item) => (
               <Link className={s.link} href={item.link} target="_blank" key={item.text}>
                 <SplitText className={s.network} text={item.text} />
-                <Image width={20} height={20} src={item.logo} alt={item.text} />
+                <Image width={20} height={20} src={item.logo} alt="" />
               </Link>
             ))}
           </motion.div>

@@ -22,6 +22,7 @@ const Preview: FC = () => {
       variants={bottomToTop}
     >
       <TypeAnimation
+        key={lang} // Принудительный перерендер при смене языка
         sequence={[
           `LUNO ${t("preview.sites")}`,
           `LUNO ${t("preview.sites")}`,
@@ -33,12 +34,6 @@ const Preview: FC = () => {
         ]}
         wrapper="span"
         speed={10}
-        // cursor={false}
-        // style={{
-        //   fontSize: "130px",
-        //   display: "inline-block",
-        //   fontFamily: "Benzin",
-        // }}
         className={s.title}
         repeat={Infinity}
       />
@@ -58,11 +53,11 @@ const Preview: FC = () => {
         </Button>
       </Link>
       <SplitTextScreen
-        text="We are Luno, we will create a dream website for you."
+        text="We are Luno, we will create a dream site and design for you."
         className={s.subtitle}
       />
       <p className={s.subtitle2}>
-        We are Luno, we will create a dream website for you.
+        We are Luno, we will create a dream site and design for you.
       </p>
     </motion.section>
   );

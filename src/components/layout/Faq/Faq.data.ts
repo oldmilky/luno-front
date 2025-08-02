@@ -1,37 +1,51 @@
 export const faqs = [
   {
     title: "Какие услуги предоставляет студия Luno?",
+    titleEn: "What services does Luno provide?",
     number: ".0.1",
     text: "LunoWeb специализируется на создании сайтов под ключ, дизайне пользовательских интерфейсов, SEO-оптимизации и технической поддержке. Мы разрабатываем решения, адаптированные под цели вашего бизнеса: от лендингов до сложных интернет-магазинов.",
+    textEn: "LunoWeb specializes in creating websites under key, designing user interfaces, SEO optimization and technical support. We develop solutions adapted to the goals of your business: from landing pages to complex online stores.",
   },
   {
     title: "Сколько времени занимает создание сайта?",
+    titleEn: "How long does it take to create a website?",
     number: ".0.2",
     text: "Сроки зависят от сложности проекта. Простой сайт может быть готов за 7–14 дней, более сложные решения — от 6 до 12 недель. Мы всегда соблюдаем дедлайны и держим клиента в курсе всех этапов работы.",
+    textEn: "The timeline depends on the complexity of the project. A simple website can be ready in 7-14 days, more complex solutions — from 6 to 12 weeks. We always meet deadlines and keep the client informed about all stages of work.",
   },
   {
     title: "Сколько стоит разработка сайта?",
+    titleEn: "How much does website development cost?",
     number: ".0.3",
     text: "Цена рассчитывается индивидуально и зависит от задач: тип сайта, объём дизайна, функциональность и интеграции. Мы предлагаем как бюджетные решения, так и комплексные продукты под ключ с детальным техническим заданием.",
+    textEn: "The price is calculated individually and depends on the tasks: type of website, volume of design, functionality and integration. We offer both budget solutions and comprehensive products under key with a detailed technical specification.",
   },
   {
     title: "Оптимизируете ли вы сайты под поисковые системы?",
+    titleEn: "Do you optimize websites for search engines?",
     number: ".0.4",
     text: "Да, мы сразу закладываем техническую SEO-оптимизацию: адаптивность, быструю загрузку, корректную структуру заголовков, мета-теги и человеко-понятные URL. Также по желанию предоставляем комплексную SEO-продвижение.",
+    textEn: "Yes, we immediately incorporate technical SEO optimization: adaptability, fast loading, correct header structure, meta tags and human-readable URLs. We also provide comprehensive SEO promotion on request.",
   },
   {
     title: "Можно ли заказать только дизайн без программирования?",
+    titleEn: "Can I order only design without programming?",
     number: ".0.5",
     text: "Конечно. Мы разрабатываем UX/UI-дизайн в Figma по всем стандартам и передаём его вашей команде или программистам. Также можем адаптировать дизайн под ваши технические требования.",
+    textEn: "Of course. We develop UX/UI design in Figma according to all standards and transfer it to your team or programmers. We can also adapt the design to your technical requirements.",
   },
   {
     title: "Работаете ли вы с клиентами по всему миру?",
+    titleEn: "Do you work with clients from all over the world?",
     number: ".0.6",
     text: "Да, мы сотрудничаем с клиентами из разных стран. Вся работа ведётся онлайн: вы получаете доступ к чату с командой, регулярные отчёты и возможность вносить правки на любом этапе.",
+    textEn: "Yes, we cooperate with clients from different countries. All work is carried out online: you get access to the chat with the team, regular reports and the ability to make changes at any stage.",
   },
   {
     title: "Почему стоит выбрать студию Luno?",
+    titleEn: "Why should I choose Luno?",
     number: ".0.6",
     text: "Мы совмещаем дизайн, разработку и маркетинговое мышление. У нас работают опытные специалисты, каждый проект проходит контроль качества, а результат — это не просто сайт, а инструмент для роста вашего бизнеса.",
+    textEn: "We combine design, development and marketing thinking. Our team consists of experienced specialists, each project undergoes quality control, and the result is not just a website, but a tool for the growth of your business.",
   },
 ];

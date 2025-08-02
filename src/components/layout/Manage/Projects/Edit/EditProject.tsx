@@ -175,6 +175,15 @@ const EditProject: FC = () => {
             )}
           />
 
+          <Field
+            {...register("sort")}
+            hint="Сортировка"
+            placeholder="Введи число..."
+            type="number"
+            error={errors.sort}
+            style={{ width: "410px" }}
+          />
+
           <div className={s.images}>
             {imageFields.map((field) => (
               <Controller

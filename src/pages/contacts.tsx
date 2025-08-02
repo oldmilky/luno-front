@@ -1,21 +1,8 @@
-import Contacts from "@/components/layout/Contacts/Contacts";
-import Header from "@/components/ui/Header/Header";
-import Seo from "@/providers/Seo";
+import ContactsPages from "@/components/pages/Contacts";
 import { NextPage } from "next";
-import dynamic from "next/dynamic";
 
-const ServicesPage: NextPage = () => {
-  const Footer = dynamic(() => import("@/components/ui/Footer/Footer"), {
-    ssr: false,
-  });
-
-  return (
-    <Seo title="LUNO - Разработка уникальных сайтов и дизайнов!">
-      <Header />
-      <Contacts />
-      <Footer />
-    </Seo>
-  );
+const ContactsPage: NextPage = () => {
+  return <ContactsPages />;
 };
 
-export default ServicesPage;
+export default ContactsPage;

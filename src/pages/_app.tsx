@@ -8,6 +8,8 @@ import AuthProvider from "@/providers/AuthProvider/AuthProvider";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { AnimatePresence } from "framer-motion";
 import { Raleway } from 'next/font/google'
+import { DefaultSeo } from "next-seo";
+import SEO from '@/providers/Seo/next-seo.config';
 
 type TypeAppProps = AppProps & TypeComponentAuthFields;
 
@@ -35,6 +37,7 @@ function App({ Component, pageProps, router }: TypeAppProps) {
         <QueryClientProvider client={queryClient}>
           <AuthProvider Component={Component}>
             <AnimatePresence mode="wait" initial={false}>
+              <DefaultSeo {...SEO} />
               <Component key={router.route} {...pageProps} />
             </AnimatePresence>
           </AuthProvider>

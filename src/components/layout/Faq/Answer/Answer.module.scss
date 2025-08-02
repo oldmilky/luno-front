@@ -21,6 +21,14 @@
   }
 }
 
+.answerHidden {
+  display: none;
+
+  &[aria-hidden="false"] {
+    display: block;
+  }
+}
+
 .answerWhite {
   max-width: 1000px;
   width: 100%;

@@ -119,8 +119,9 @@ const Media: FC<MediaProps> = ({
               alt={`media image ${imageItem.index + 1}`}
               width={650}
               height={350}
-              loading="lazy"
-              priority={false}
+              loading="eager"
+              // loading="lazy"
+              // priority={false}
             />
           </motion.div>
         ))}

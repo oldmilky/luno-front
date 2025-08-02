@@ -83,7 +83,7 @@ const Modal = ({ modal, projects }: any) => {
         initial="initial"
         animate={active ? "enter" : "closed"}
       ></motion.div>
-      <motion.a
+      <motion.p
         ref={cursorLabel}
         className={s.cursorLabel}
         variants={scaleAnimation}
@@ -91,7 +91,7 @@ const Modal = ({ modal, projects }: any) => {
         animate={active ? "enter" : "closed"}
       >
         VIEW
-      </motion.a>
+      </motion.p>
     </>
   );
 };

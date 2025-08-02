@@ -3,6 +3,7 @@ import s from "./Answer.module.scss";
 import { AnimatePresence, motion } from "framer-motion";
 import { AnswerProps } from "./Answer.interface";
 import MaskText from "@/components/animate/MaskText/MaskText";
+import useTranslation from "next-translate/useTranslation";
 
 const textAnimation = {
   initial: {
@@ -32,8 +33,10 @@ const textAnimation = {
 
 const Answer: FC<AnswerProps> = ({
   title,
+  titleEn,
   number,
   text,
+  textEn,
   themeWhite,
   isActive,
   onHover,
@@ -42,13 +45,21 @@ const Answer: FC<AnswerProps> = ({
 
   const isElementActive = isActive || isOpen;
 
+  const { lang } = useTranslation("common");
+
   return (
     <motion.section
       className={themeWhite ? s.answerWhite : s.answer}
       onHoverStart={() => onHover(true)}
       onHoverEnd={() => onHover(false)}
     >
-      <div className={s.content} onClick={() => setIsOpen(!isOpen)}>
+      <div
+        className={s.content}
+        onClick={() => setIsOpen(!isOpen)}
+        itemScope
+        itemProp="mainEntity"
+        itemType="https://schema.org/Question"
+      >
         <div className={s.titles}>
           <p
             className={
@@ -60,8 +71,9 @@ const Answer: FC<AnswerProps> = ({
                 ? s.title
                 : `${s.title} ${s.inactive}`
             }
+            itemProp="name"
           >
-            {title}
+            {lang === "ru" ? title : titleEn}
           </p>
           <p
             className={
@@ -94,16 +106,36 @@ const Answer: FC<AnswerProps> = ({
       <AnimatePresence>
         {isOpen && (
           <motion.p
+            key="animated-answer"
             className={s.textWrapper}
             variants={textAnimation}
             initial="initial"
             animate="animate"
             exit="exit"
+            itemScope
+            itemProp="acceptedAnswer"
+            itemType="https://schema.org/Answer"
           >
-            <MaskText words={[text]} className={s.text} />
+            <span itemProp="text">
+              <MaskText
+                words={[lang === "ru" ? text : textEn]}
+                className={s.text}
+              />
+            </span>
           </motion.p>
         )}
       </AnimatePresence>
+
+      <p
+        className={s.textWrapper}
+        itemScope
+        itemProp="acceptedAnswer"
+        itemType="https://schema.org/Answer"
+        aria-hidden="true"
+        style={{ display: "none" }}
+      >
+        <span itemProp="text">{lang === "ru" ? text : textEn}</span>
+      </p>
     </motion.section>
   );
 };
