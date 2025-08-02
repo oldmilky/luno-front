@@ -69,6 +69,8 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "next-translate-plugin": "^2.6.2",
-    "typescript": "^5"
+    "typescript": "^5",
+    "@fullhuman/postcss-purgecss": "^4.1.0",
+    "postcss-import": "^15.1.0"
   }
 }
