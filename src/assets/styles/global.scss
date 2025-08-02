@@ -1,5 +1,4 @@
 @import "src/assets/styles/variables.scss";
-@import "../../components/animate/CurvePage/CurvePage.module.scss";
 
 @font-face {
   font-family: "Benzin";
@@ -246,97 +245,6 @@ input[type="range"]::-webkit-slider-thumb {
   background: $dark-gray-300;
 }
 
-.swiper {
-  max-width: 900px;
-  position: relative;
-}
-
-.swiper-slide {
-  display: flex;
-  padding: 0 0 30px 0;
-}
-
-.swiper-horizontal > .swiper-scrollbar,
-.swiper-scrollbar.swiper-scrollbar-horizontal {
-  position: absolute;
-  bottom: 145px !important;
-  left: 0 !important;
-  background: $gray-200;
-  height: 6px !important;
-  width: 100% !important;
-}
-
-.swiper-scrollbar-drag {
-  background: $black !important;
-}
-
-.swiper-button-prev {
-  width: 50px !important;
-  height: 50px !important;
-  color: $gray-300 !important;
-  top: 250px !important;
-  background: #0d0e11db;
-  border-radius: 50%;
-  margin-left: 10px;
-}
-
-.swiper-button-prev:after {
-  font-size: 17px !important;
-}
-
-.swiper-button-prev.swiper-button-disabled {
-  opacity: 0.6 !important;
-}
-
-.swiper-button-next {
-  width: 50px !important;
-  height: 50px !important;
-  color: $gray-300 !important;
-  top: 250px !important;
-  background: #0d0e11db;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.swiper-button-next:after {
-  font-size: 17px !important;
-}
-
-.swiper-button-next.swiper-button-disabled {
-  opacity: 0.6 !important;
-}
-
-.swiper-pagination {
-  bottom: 0 !important;
-}
-
-.swiper-pagination-bullet {
-  width: 12px !important;
-  height: 12px !important;
-}
-
-.swiper .swiper-pagination-bullet-active {
-  background: $white;
-}
-
-.swiper .swiper-pagination-bullet {
-  background: $gray-100;
-}
-
-.video__container {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-.chatbro_container * {
-  font-family: Raleway !important;
-  font-weight: 400 !important;
-}
-
-video {
-  object-fit: cover;
-}
-
 .stairs {
   .transition-container {
     position: fixed;
@@ -422,30 +330,3 @@ video {
 .shiny-text.disabled {
   animation: none;
 }
-
-// .page {
-//   position: relative;
-//   z-index: 1;
-// }
-
-// .page {
-//   opacity: 1;
-//   visibility: visible;
-// }
-
-// body:not(.css-ready) .page {
-//   opacity: 0;
-//   visibility: hidden;
-// }
-
-// body.css-ready .page {
-//   opacity: 1;
-//   visibility: visible;
-// }
-
-// @media (prefers-reduced-motion: reduce) {
-//   .page {
-//     opacity: 1 !important;
-//     visibility: visible !important;
-//   }
-// }
