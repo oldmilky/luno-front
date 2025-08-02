@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
+import { loadGSAP } from "@/utils/dynamicImports";
 
 interface MagneticProps {
   children: React.ReactElement;
@@ -11,13 +11,18 @@ export default function Magnetic({ children }: MagneticProps) {
   useEffect(() => {
     if (!magnetic.current) return;
 
-    const xTo = gsap.quickTo(magnetic.current, "x", {
-      duration: 1,
-      ease: "elastic.out(1, 0.3)",
-    });
-    const yTo = gsap.quickTo(magnetic.current, "y", {
-      duration: 1,
-      ease: "elastic.out(1, 0.3)",
+    let xTo: any;
+    let yTo: any;
+
+    loadGSAP().then((gsap) => {
+      xTo = gsap.quickTo(magnetic.current, "x", {
+        duration: 1,
+        ease: "elastic.out(1, 0.3)",
+      });
+      yTo = gsap.quickTo(magnetic.current, "y", {
+        duration: 1,
+        ease: "elastic.out(1, 0.3)",
+      });
     });
 
     // Cache element bounds to avoid getBoundingClientRect on every mousemove
@@ -59,9 +64,24 @@ export default function Magnetic({ children }: MagneticProps) {
     };
 
     const element = magnetic.current;
-    element.addEventListener("mouseenter", handleMouseEnter);
-    element.addEventListener("mousemove", handleMouseMove);
-    element.addEventListener("mouseleave", handleMouseLeave);
+    // Event listeners will be added after GSAP is loaded
+    const addListeners = () => {
+      element.addEventListener("mouseenter", handleMouseEnter);
+      element.addEventListener("mousemove", handleMouseMove);
+      element.addEventListener("mouseleave", handleMouseLeave);
+    };
+
+    if (xTo && yTo) {
+      addListeners();
+    } else {
+      // Fallback: wait until GSAP finishes loading
+      const interval = setInterval(() => {
+        if (xTo && yTo) {
+          addListeners();
+          clearInterval(interval);
+        }
+      }, 50);
+    }
     window.addEventListener("resize", handleResize);
 
     return () => {

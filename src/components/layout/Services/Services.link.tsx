@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { mountAnim, rotateX } from "./Services.anim";
 import Image from "next/image";
 import { FC, useRef } from "react";
-import gsap from "gsap";
+import { loadGSAP } from "@/utils/dynamicImports";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 
@@ -37,26 +37,30 @@ const ServicesLink: FC<ServicesLinkProps> = ({
 
   const manageMouseEnter = (e: any) => {
     const bounds = e.target.getBoundingClientRect();
-    if (e.clientY < bounds.top + bounds.height / 2) {
-      gsap.set(outer.current, { top: "-100%" });
-      gsap.set(inner.current, { top: "100%" });
-    } else {
-      gsap.set(outer.current, { top: "100%" });
-      gsap.set(inner.current, { top: "-100%" });
-    }
-    gsap.to(outer.current, { top: "0%", duration: 0.3 });
-    gsap.to(inner.current, { top: "0%", duration: 0.3 });
+    loadGSAP().then((gsap) => {
+      if (e.clientY < bounds.top + bounds.height / 2) {
+        gsap.set(outer.current, { top: "-100%" });
+        gsap.set(inner.current, { top: "100%" });
+      } else {
+        gsap.set(outer.current, { top: "100%" });
+        gsap.set(inner.current, { top: "-100%" });
+      }
+      gsap.to(outer.current, { top: "0%", duration: 0.3 });
+      gsap.to(inner.current, { top: "0%", duration: 0.3 });
+    });
   };
 
   const manageMouseLeave = (e: any) => {
     const bounds = e.target.getBoundingClientRect();
-    if (e.clientY < bounds.top + bounds.height / 2) {
-      gsap.to(outer.current, { top: "-100%", duration: 0.3 });
-      gsap.to(inner.current, { top: "100%", duration: 0.3 });
-    } else {
-      gsap.to(outer.current, { top: "100%", duration: 0.3 });
-      gsap.to(inner.current, { top: "-100%", duration: 0.3 });
-    }
+    loadGSAP().then((gsap) => {
+      if (e.clientY < bounds.top + bounds.height / 2) {
+        gsap.to(outer.current, { top: "-100%", duration: 0.3 });
+        gsap.to(inner.current, { top: "100%", duration: 0.3 });
+      } else {
+        gsap.to(outer.current, { top: "100%", duration: 0.3 });
+        gsap.to(inner.current, { top: "-100%", duration: 0.3 });
+      }
+    });
   };
 
   const { t, lang } = useTranslation("common");

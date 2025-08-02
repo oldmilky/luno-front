@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import gsap from "gsap";
+import { loadGSAP } from "@/utils/dynamicImports";
 
 type SplitTextProps = {
   text: string;
@@ -10,25 +10,27 @@ const SplitText: React.FC<SplitTextProps> = ({ text, className }) => {
   const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const letters = textRef.current?.querySelectorAll(".letter");
+    loadGSAP().then((gsap) => {
+      const letters = textRef.current?.querySelectorAll(".letter");
 
-    if (letters) {
-      const tl = gsap.timeline({ paused: true });
+      if (letters) {
+        const tl = gsap.timeline({ paused: true });
 
-      letters.forEach((letter, index) => {
-        tl.to(
-          letter,
-          {
-            rotateX: 360,
-            duration: 0.5,
-            ease: "power2.inOut",
-          },
-          index * 0.07
-        );
-      });
+        letters.forEach((letter, index) => {
+          tl.to(
+            letter,
+            {
+              rotateX: 360,
+              duration: 0.5,
+              ease: "power2.inOut",
+            },
+            index * 0.07
+          );
+        });
 
-      textRef.current?.addEventListener("mouseenter", () => tl.restart());
-    }
+        textRef.current?.addEventListener("mouseenter", () => tl.restart());
+      }
+    });
 
     return () => {
       textRef.current?.removeEventListener("mouseenter", () => {});

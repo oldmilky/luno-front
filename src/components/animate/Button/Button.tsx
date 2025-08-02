@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { useEffect, useRef } from "react";
 import s from "./Button.module.scss";
-import gsap from "gsap";
+import { loadGSAP } from "@/utils/dynamicImports";
 import Magnetic from "./Magnetic";
 
 interface ButtonProps {
@@ -17,22 +17,24 @@ const Button: FC<ButtonProps> = ({
   ...attributes
 }) => {
   const circle = useRef<HTMLDivElement | null>(null);
-  const timeline = useRef<gsap.core.Timeline | null>(null);
+  const timeline = useRef<any>(null);
   let timeoutId: NodeJS.Timeout | null = null;
 
   useEffect(() => {
-    timeline.current = gsap.timeline({ paused: true });
-    timeline.current
-      .to(
-        circle.current,
-        { top: "-25%", width: "150%", duration: 0.3, ease: "power3.in" },
-        "enter"
-      )
-      .to(
-        circle.current,
-        { top: "-150%", width: "125%", duration: 0.2 },
-        "exit"
-      );
+    loadGSAP().then((gsap) => {
+      timeline.current = gsap.timeline({ paused: true });
+      timeline.current
+        .to(
+          circle.current,
+          { top: "-25%", width: "150%", duration: 0.3, ease: "power3.in" },
+          "enter"
+        )
+        .to(
+          circle.current,
+          { top: "-150%", width: "125%", duration: 0.2 },
+          "exit"
+        );
+    });
   }, []);
 
   const manageMouseEnter = () => {
