@@ -161,6 +161,7 @@ const Header: FC = () => {
                   onClick={handleClick}
                   onMouseEnter={() => setActiveIndex(index)}
                   onMouseLeave={() => setActiveIndex(null)}
+                  href={data.href === "/about" ? "/#aboutme" : "/#development"}
                 >
                   <AnimatePresence>
                     {(activeIndex === index || isActive) && (

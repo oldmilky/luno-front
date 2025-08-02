@@ -1,19 +1,12 @@
 import { FC } from "react";
 import s from "./Planet.module.scss";
-import Image from "next/image";
 import planet from "@/assets/images/planet.svg";
+import Image from "next/image";
 
 const Planet: FC = () => {
   return (
     <div className={s.planets}>
-      <Image
-        draggable={false}
-        className={s.planet}
-        src={planet}
-        alt="planet"
-        priority={true}
-        fetchPriority="high"
-      />
+      <Image src={planet} className={s.planet} alt="planet" priority={true} />
     </div>
   );
 };
