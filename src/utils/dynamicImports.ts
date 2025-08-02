@@ -8,9 +8,26 @@ let gsapCache: any = null;
 export const loadGSAP = async () => {
   if (gsapCache) return gsapCache;
   
-  const gsap = (await import("gsap")).default;
-  gsapCache = gsap;
-  return gsap;
+  // Defer heavy import until browser is idle to avoid blocking LCP
+  const importGsap = () => import("gsap").then((mod) => mod.default);
+
+  if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+    gsapCache = await new Promise((resolve) => {
+      (window as any).requestIdleCallback(async () => {
+        const gsap = await importGsap();
+        resolve(gsap);
+      });
+    });
+  } else {
+    // Fallback – small timeout to push after critical rendering
+    gsapCache = await new Promise((resolve) => {
+      setTimeout(async () => {
+        const gsap = await importGsap();
+        resolve(gsap);
+      }, 1200);
+    });
+  }
+  return gsapCache;
 };
 
 // GSAP ScrollTrigger with caching

@@ -105,7 +105,7 @@ const Seo: FC<SeoProps> = ({
       <NextSeo
         title={title}
         description={description}
-        canonical={canonical}
+        canonical={fullCanonical}
         openGraph={{
           title,
           description,
