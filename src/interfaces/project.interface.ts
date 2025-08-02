@@ -45,5 +45,5 @@ export interface IProject {
   image14?: string;
   image15?: string;
 
-  // sort?: number;
+  sort?: number;
 }
