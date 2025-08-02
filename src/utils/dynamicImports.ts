@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 let gsapCache: any = null;
 export const loadGSAP = async () => {
   if (gsapCache) return gsapCache;
-
+  
   const gsap = (await import("gsap")).default;
   gsapCache = gsap;
   return gsap;
@@ -17,29 +17,23 @@ export const loadGSAP = async () => {
 let scrollTriggerCache: any = null;
 export const loadScrollTrigger = async () => {
   if (scrollTriggerCache) return scrollTriggerCache;
-
+  
   const [gsap, ScrollTrigger] = await Promise.all([
     loadGSAP(),
-    import("gsap/ScrollTrigger"),
+    import("gsap/ScrollTrigger")
   ]);
-
+  
   scrollTriggerCache = ScrollTrigger.default;
   gsap.registerPlugin(scrollTriggerCache);
   return scrollTriggerCache;
 };
 
 // Heavy animation components
-export const DynamicModal = dynamic(
-  () => import("@/components/layout/Portfolio/Modal/Modal"),
-  {
-    ssr: false,
-  }
-);
+export const DynamicModal = dynamic(() => import("@/components/layout/Portfolio/Modal/Modal"), {
+  ssr: false
+});
 
 // Media component with draggable scroll
-export const DynamicMedia = dynamic(
-  () => import("@/components/layout/Case/Media/Media"),
-  {
-    ssr: false,
-  }
-);
+export const DynamicMedia = dynamic(() => import("@/components/layout/Case/Media/Media"), {
+  ssr: false
+}); 

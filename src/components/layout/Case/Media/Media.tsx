@@ -119,7 +119,7 @@ const Media: FC<MediaProps> = ({
               alt={`media image ${imageItem.index + 1}`}
               width={650}
               height={350}
-              loading="eager"
+              // loading="eager"
               // loading="lazy"
               // priority={false}
             />

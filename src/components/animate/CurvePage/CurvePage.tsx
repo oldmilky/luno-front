@@ -120,22 +120,9 @@ const Curve: FC<CurveProps> = ({ children, background }) => {
       });
     };
 
-    // Устанавливаем начальные размеры
     handleResize();
-
-    // Дебаунсинг для resize события
-    let timeoutId: NodeJS.Timeout;
-    const debouncedResize = () => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(handleResize, 100);
-    };
-
-    window.addEventListener("resize", debouncedResize);
-    
-    return () => {
-      window.removeEventListener("resize", debouncedResize);
-      clearTimeout(timeoutId);
-    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {

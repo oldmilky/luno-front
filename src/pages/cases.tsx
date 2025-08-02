@@ -1,6 +1,8 @@
+import Portfolio from "@/components/layout/Portfolio/Portfolio";
 import CasesPages from "@/components/pages/Cases";
 import { toastError } from "@/components/ui/Toast/Toast";
 import { IProject } from "@/interfaces/project.interface";
+import Seo from "@/providers/Seo";
 import { ProjectService } from "@/services/project.service";
 import { GetStaticProps, NextPage } from "next";
 

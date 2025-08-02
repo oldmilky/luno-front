@@ -65,22 +65,10 @@ const Header: FC = () => {
       setShowNav(window.scrollY > 150);
     };
 
-    // Throttling для scroll события (используем RAF для лучшей производительности)
-    let ticking = false;
-    const throttledScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", throttledScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", throttledScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
