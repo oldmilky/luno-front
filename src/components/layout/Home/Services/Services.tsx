@@ -61,31 +61,34 @@ const Services: FC<{ services: IService[] }> = ({ services }) => {
   const handleMouseMove = useCallback((e: MouseEvent) => {
     const { pageX, pageY } = e;
     if (modalContainer.current && cursor.current && cursorLabel.current && gsapRef.current) {
-      gsapRef.current.to(modalContainer.current, {
-        left: pageX,
-        top: pageY,
-        duration: 0.5,
-        ease: "power3",
-      });
-      gsapRef.current.to(cursor.current, {
-        left: pageX,
-        top: pageY,
-        duration: 0.25,
-        ease: "power3",
-      });
-      gsapRef.current.to(cursorLabel.current, {
-        left: pageX,
-        top: pageY,
-        duration: 0.25,
-        ease: "power3",
-      });
+      // Используем GSAP quickTo для лучшей производительности
+      gsapRef.current.quickTo(modalContainer.current, "left", { duration: 0.5, ease: "power3" })(pageX);
+      gsapRef.current.quickTo(modalContainer.current, "top", { duration: 0.5, ease: "power3" })(pageY);
+      
+      gsapRef.current.quickTo(cursor.current, "left", { duration: 0.25, ease: "power3" })(pageX);
+      gsapRef.current.quickTo(cursor.current, "top", { duration: 0.25, ease: "power3" })(pageY);
+      
+      gsapRef.current.quickTo(cursorLabel.current, "left", { duration: 0.25, ease: "power3" })(pageX);
+      gsapRef.current.quickTo(cursorLabel.current, "top", { duration: 0.25, ease: "power3" })(pageY);
     }
   }, []);
 
   useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
+    // Throttling для mousemove события
+    let ticking = false;
+    const throttledMouseMove = (e: MouseEvent) => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleMouseMove(e);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("mousemove", throttledMouseMove, { passive: true });
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousemove", throttledMouseMove);
     };
   }, [handleMouseMove]);
 
