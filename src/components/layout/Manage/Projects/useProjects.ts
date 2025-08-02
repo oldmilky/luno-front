@@ -25,7 +25,7 @@ export const useProjects = () => {
           typeService: project.typeService,
           develop: project.develop,
           design: project.design,
-          // sort: project.sort,
+          sort: project.sort,
           image: project.image,
         })),
       onError: (error) => {
