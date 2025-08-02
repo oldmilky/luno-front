@@ -15,12 +15,13 @@
   },
   "browserslist": {
     "production": [
-      "last 2 chrome versions",
-      "last 2 firefox versions",
-      "last 2 safari versions",
-      "last 2 edge versions",
+      ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "Chrome >= 88",
+      "Firefox >= 78",
+      "Safari >= 14",
+      "Edge >= 88"
     ],
     "development": [
       "last 1 chrome version",
