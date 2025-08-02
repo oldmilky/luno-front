@@ -3,7 +3,11 @@ import type { AppProps } from "next/app";
 import { TypeComponentAuthFields } from "@/interfaces/user.interface";
 import { Provider } from "react-redux";
 import { store } from "@/store/store";
-import { Toaster } from "react-hot-toast";
+import dynamic from "next/dynamic";
+
+const Toaster = dynamic(() => import("react-hot-toast").then((mod) => mod.Toaster), {
+  ssr: false,
+});
 import AuthProvider from "@/providers/AuthProvider/AuthProvider";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { AnimatePresence } from "framer-motion";

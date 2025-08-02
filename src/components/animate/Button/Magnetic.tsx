@@ -11,37 +11,43 @@ export default function Magnetic({ children }: MagneticProps) {
   useEffect(() => {
     if (!magnetic.current) return;
 
+    let gsapRef: any = null;
     let xTo: any;
     let yTo: any;
 
-    loadGSAP().then((gsap) => {
-      xTo = gsap.quickTo(magnetic.current, "x", {
-        duration: 1,
-        ease: "elastic.out(1, 0.3)",
-      });
-      yTo = gsap.quickTo(magnetic.current, "y", {
-        duration: 1,
-        ease: "elastic.out(1, 0.3)",
-      });
-    });
-
-    // Cache element bounds to avoid getBoundingClientRect on every mousemove
+    // Cache element bounds to avoid redundant computations
     let cachedBounds: DOMRect | null = null;
     let isMouseInside = false;
 
     const updateBounds = () => {
-      if (magnetic.current) {
-        cachedBounds = magnetic.current.getBoundingClientRect();
-      }
+      cachedBounds = element.getBoundingClientRect();
     };
 
-    const handleMouseEnter = () => {
+    const element = magnetic.current;
+
+    const ensureGSAP = async () => {
+      if (gsapRef) return gsapRef;
+      gsapRef = await loadGSAP();
+      xTo = gsapRef.quickTo(element, "x", {
+        duration: 1,
+        ease: "elastic.out(1, 0.3)",
+      });
+      yTo = gsapRef.quickTo(element, "y", {
+        duration: 1,
+        ease: "elastic.out(1, 0.3)",
+      });
+      return gsapRef;
+    };
+
+    const handleMouseEnter = async () => {
       isMouseInside = true;
+      await ensureGSAP();
       updateBounds();
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!magnetic.current || !cachedBounds || !isMouseInside) return;
+    const handleMouseMove = async (e: MouseEvent) => {
+      if (!cachedBounds || !isMouseInside) return;
+      await ensureGSAP();
       const { clientX, clientY } = e;
       const { height, width, left, top } = cachedBounds;
       const x = clientX - (left + width / 2);
@@ -50,8 +56,9 @@ export default function Magnetic({ children }: MagneticProps) {
       yTo(y * 0.35);
     };
 
-    const handleMouseLeave = () => {
+    const handleMouseLeave = async () => {
       isMouseInside = false;
+      await ensureGSAP();
       xTo(0);
       yTo(0);
     };
@@ -63,25 +70,9 @@ export default function Magnetic({ children }: MagneticProps) {
       }
     };
 
-    const element = magnetic.current;
-    // Event listeners will be added after GSAP is loaded
-    const addListeners = () => {
-      element.addEventListener("mouseenter", handleMouseEnter);
-      element.addEventListener("mousemove", handleMouseMove);
-      element.addEventListener("mouseleave", handleMouseLeave);
-    };
-
-    if (xTo && yTo) {
-      addListeners();
-    } else {
-      // Fallback: wait until GSAP finishes loading
-      const interval = setInterval(() => {
-        if (xTo && yTo) {
-          addListeners();
-          clearInterval(interval);
-        }
-      }, 50);
-    }
+    element.addEventListener("mouseenter", handleMouseEnter);
+    element.addEventListener("mousemove", handleMouseMove);
+    element.addEventListener("mouseleave", handleMouseLeave);
     window.addEventListener("resize", handleResize);
 
     return () => {

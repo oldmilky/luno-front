@@ -20,28 +20,32 @@ const Button: FC<ButtonProps> = ({
   const timeline = useRef<any>(null);
   let timeoutId: NodeJS.Timeout | null = null;
 
-  useEffect(() => {
-    loadGSAP().then((gsap) => {
-      timeline.current = gsap.timeline({ paused: true });
-      timeline.current
-        .to(
-          circle.current,
-          { top: "-25%", width: "150%", duration: 0.3, ease: "power3.in" },
-          "enter"
-        )
-        .to(
-          circle.current,
-          { top: "-150%", width: "125%", duration: 0.2 },
-          "exit"
-        );
-    });
-  }, []);
+  const initializeTimeline = async () => {
+    if (timeline.current) return;
+    const gsap = await loadGSAP();
+    timeline.current = gsap.timeline({ paused: true });
+    timeline.current
+      .to(
+        circle.current,
+        { top: "-25%", width: "150%", duration: 0.3, ease: "power3.in" },
+        "enter"
+      )
+      .to(
+        circle.current,
+        { top: "-150%", width: "125%", duration: 0.2 },
+        "exit"
+      );
+  };
+
+  // Timeline will be lazily initialized on first hover
 
   const manageMouseEnter = () => {
     if (timeoutId) clearTimeout(timeoutId);
-    if (timeline.current) {
-      timeline.current.tweenFromTo("enter", "exit");
-    }
+    initializeTimeline().then(() => {
+      if (timeline.current) {
+        timeline.current.tweenFromTo("enter", "exit");
+      }
+    });
   };
 
   const manageMouseLeave = () => {

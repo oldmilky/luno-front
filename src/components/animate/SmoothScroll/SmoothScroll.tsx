@@ -1,6 +1,8 @@
 "use client";
 import { FC, ReactNode, useEffect } from "react";
-import Lenis from "@studio-freight/lenis";
+
+// We will lazy-load Lenis on client to avoid shipping it to initial JS
+let LenisCtor: any = null;
 
 interface SmoothScrollProps {
   children: ReactNode;
@@ -8,19 +10,30 @@ interface SmoothScrollProps {
 
 const SmoothScroll: FC<SmoothScrollProps> = ({ children }) => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    let lenisInstance: any = null;
 
-    const lenis = new Lenis();
+    const initLenis = async () => {
+      if (!LenisCtor) {
+        const mod = await import("@studio-freight/lenis");
+        LenisCtor = mod.default;
+      }
 
-    function raf(time: number) {
-      lenis.raf(time);
+      window.scrollTo(0, 0);
+
+      lenisInstance = new LenisCtor();
+
+      function raf(time: number) {
+        lenisInstance.raf(time);
+        requestAnimationFrame(raf);
+      }
+
       requestAnimationFrame(raf);
-    }
+    };
 
-    requestAnimationFrame(raf);
+    initLenis();
 
     return () => {
-      lenis.destroy();
+      if (lenisInstance) lenisInstance.destroy();
     };
   }, []);
 
