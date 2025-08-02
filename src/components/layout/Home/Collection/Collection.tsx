@@ -102,6 +102,7 @@ const Collection: FC<{ projects: IProject[] }> = ({ projects }) => {
                   alt="mock"
                   width={480}
                   height={270}
+                  sizes="(max-width: 915px) 100vw, 480px"
                   draggable={false}
                 />
                 <div className={s.items}>

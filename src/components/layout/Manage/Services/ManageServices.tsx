@@ -2,8 +2,6 @@ import ManageButtons from "../Header/ManageButtons";
 import ManageHeader from "../Header/ManageHeader";
 import s from "../Manage.module.scss";
 import { FC, useState } from "react";
-import mockImage from "@/assets/images/logo.svg";
-import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { bottomToTop } from "@/assets/animations/animations";
